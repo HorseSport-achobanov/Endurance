@@ -8,7 +8,7 @@
     using Microsoft.Extensions.Logging;
 
     using Services.Trial.Contracts.Account;
-    using ViewModels.ManageViewModels;
+    using ViewModels.Manage;
 
     [Authorize]
     [Route("[controller]/[action]")]

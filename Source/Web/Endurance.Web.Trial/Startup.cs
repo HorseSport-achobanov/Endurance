@@ -1,5 +1,8 @@
 ﻿namespace Endurance.Web.Trial
 {
+    using System.Reflection;
+    using Common.Constants;
+    using Common.Mapping;
     using Config;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Identity;
@@ -30,6 +33,7 @@
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
+            services.AddMapper();
             services.AddCustomServices();
 
             services.AddMvc();
