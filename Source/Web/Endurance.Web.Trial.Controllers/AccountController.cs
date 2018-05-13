@@ -1,6 +1,5 @@
 ﻿namespace Endurance.Web.Trial.Controllers
 {
-    using System;
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Authentication;
     using Microsoft.AspNetCore.Authorization;
@@ -9,6 +8,7 @@
     using Microsoft.Extensions.Logging;
 
     using Endurance.Data.Trial.Models.Account;
+    using Services.Trial.Contracts.Account;
     using ViewModels.AccountViewModels;
 
     [Authorize]
@@ -22,11 +22,13 @@
         public AccountController(
             UserManager<User> userManager,
             SignInManager<User> signInManager,
-            ILogger<AccountController> logger)
-        {
+            ILogger<AccountController> logger,
+            IUsersDataService usersData
+        ) { 
             this.userManager = userManager;
             this.signInManager = signInManager;
             this.logger = logger;
+            usersData.Test();
         }
 
         [TempData]
