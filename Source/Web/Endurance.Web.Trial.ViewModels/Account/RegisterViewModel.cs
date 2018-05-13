@@ -1,4 +1,4 @@
-﻿namespace Endurance.Web.Trial.ViewModels.AccountViewModels
+﻿namespace Endurance.Web.Trial.ViewModels.Account
 {
     using System.ComponentModel.DataAnnotations;
 
