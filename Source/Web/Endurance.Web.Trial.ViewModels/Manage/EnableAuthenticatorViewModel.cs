@@ -1,4 +1,4 @@
-﻿namespace Endurance.Web.Trial.ViewModels.ManageViewModels
+﻿namespace Endurance.Web.Trial.ViewModels.Manage
 {
     using System.ComponentModel.DataAnnotations;
     using Microsoft.AspNetCore.Mvc.ModelBinding;

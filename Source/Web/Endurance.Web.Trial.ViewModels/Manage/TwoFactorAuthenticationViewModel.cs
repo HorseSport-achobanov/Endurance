@@ -1,4 +1,4 @@
-﻿namespace Endurance.Web.Trial.ViewModels.ManageViewModels
+﻿namespace Endurance.Web.Trial.ViewModels.Manage
 {
     public class TwoFactorAuthenticationViewModel
     {
