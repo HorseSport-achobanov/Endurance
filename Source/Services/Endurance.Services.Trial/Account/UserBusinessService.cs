@@ -10,7 +10,6 @@
 
     public class UserBusinessService : IUserBusinessService
     {
-        private readonly ILogger logger;
         private readonly IUserDataService userData;
         private readonly SignInManager<User> signInManager;
 

@@ -5,11 +5,10 @@
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
-    using Microsoft.Extensions.Logging;
 
     using Endurance.Data.Trial.Models.Account;
     using Services.Trial.Contracts.Account;
-    using ViewModels.AccountViewModels;
+    using ViewModels.Account;
 
     [Authorize]
     [Route("[controller]/[action]")]
