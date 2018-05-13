@@ -14,7 +14,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Data\Endurance.Data.Trial.Models\Endurance.Data.Trial.Models.csproj" />
-    <ProjectReference Include="..\..\Services\Endurance.Services.Trial\Endurance.Services.Trial.csproj" />
+    <ProjectReference Include="..\..\Services\Endurance.Services.Trial.Contracts\Endurance.Services.Trial.Contracts.csproj" />
     <ProjectReference Include="..\Endurance.Web.Trial.ViewModels\Endurance.Web.Trial.ViewModels.csproj" />
   </ItemGroup>
 

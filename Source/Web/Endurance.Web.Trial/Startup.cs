@@ -1,5 +1,6 @@
 ﻿namespace Endurance.Web.Trial
 {
+    using Config;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.EntityFrameworkCore;
@@ -29,7 +30,7 @@
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
-            // Add application services.
+            services.AddCustomServices();
 
             services.AddMvc();
         }

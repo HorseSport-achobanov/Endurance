@@ -1,6 +1,5 @@
 ﻿namespace Endurance.Web.Trial.Controllers
 {
-    using System;
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Authentication;
     using Microsoft.AspNetCore.Authorization;
@@ -9,24 +8,18 @@
     using Microsoft.Extensions.Logging;
 
     using Endurance.Data.Trial.Models.Account;
+    using Services.Trial.Contracts.Account;
     using ViewModels.AccountViewModels;
 
     [Authorize]
     [Route("[controller]/[action]")]
     public class AccountController : Controller
     {
-        private readonly UserManager<User> userManager;
-        private readonly SignInManager<User> signInManager;
-        private readonly ILogger logger;
+        private readonly IUserBusinessService userBusiness;
 
-        public AccountController(
-            UserManager<User> userManager,
-            SignInManager<User> signInManager,
-            ILogger<AccountController> logger)
+        public AccountController(IUserBusinessService userBusiness)
         {
-            this.userManager = userManager;
-            this.signInManager = signInManager;
-            this.logger = logger;
+            this.userBusiness = userBusiness;
         }
 
         [TempData]
@@ -52,12 +45,9 @@
             if (!ModelState.IsValid)
                 return View(model);
 
-            var result = await signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, lockoutOnFailure: false);
-            if (result.Succeeded)
-            {
-                logger.LogInformation("User logged in.");
+            var signIn = await userBusiness.SignInAsync(model.Email, model.Password, model.RememberMe);
+            if (signIn.Succeeded)
                 return RedirectToLocal(returnUrl);
-            }
 
             ModelState.AddModelError(string.Empty, "Invalid login attempt.");
             return View(model);
@@ -81,15 +71,11 @@
                 return View(model);
 
             var user = new User { UserName = model.Email, Email = model.Email };
-            var result = await userManager.CreateAsync(user, model.Password);
-            if (result.Succeeded)
-            {
-                logger.LogInformation("User created a new account with password.");
+            var registration = await userBusiness.Register(user, model.Password);
+            if (registration.Succeeded)
+                return RedirectToAction(nameof(Login), returnUrl);
 
-                return RedirectToAction(nameof(AccountController.Login), returnUrl);
-            }
-
-            AddErrors(result);
+            AddErrors(registration);
             return View(model);
         }
 
@@ -97,8 +83,7 @@
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Logout()
         {
-            await signInManager.SignOutAsync();
-            logger.LogInformation("User logged out.");
+            await userBusiness.SignOutAsync();
             return RedirectToAction(nameof(HomeController.Index), "Home");
         }
 
@@ -113,7 +98,9 @@
         private void AddErrors(IdentityResult result)
         {
             foreach (var error in result.Errors)
+            {
                 ModelState.AddModelError(string.Empty, error.Description);
+            }
         }
 
         private IActionResult RedirectToLocal(string returnUrl)
