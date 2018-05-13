@@ -10,6 +10,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Common\Common.csproj" />
+    <ProjectReference Include="..\Endurance.Data.Trial.Contracts\Endurance.Data.Trial.Contracts.csproj" />
+    <ProjectReference Include="..\Endurance.Data.Trial.Models\Endurance.Data.Trial.Models.csproj" />
     <ProjectReference Include="..\Endurance.Data.Trial\Endurance.Data.Trial.csproj" />
   </ItemGroup>
 

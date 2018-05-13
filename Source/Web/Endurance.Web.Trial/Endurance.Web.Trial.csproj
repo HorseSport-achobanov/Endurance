@@ -21,6 +21,7 @@
     <ProjectReference Include="..\..\Common\Common.csproj" />
     <ProjectReference Include="..\..\Data\Endurance.Data.Trial.Contracts\Endurance.Data.Trial.Contracts.csproj" />
     <ProjectReference Include="..\..\Data\Endurance.Data.Trial\Endurance.Data.Trial.csproj" />
+    <ProjectReference Include="..\..\Services\Endurance.Services.Trial.Contracts\Endurance.Services.Trial.Contracts.csproj" />
     <ProjectReference Include="..\..\Services\Endurance.Services.Trial\Endurance.Services.Trial.csproj" />
     <ProjectReference Include="..\Endurance.Web.Trial.Controllers\Endurance.Web.Trial.Controllers.csproj" />
     <ProjectReference Include="..\Endurance.Web.Trial.ViewModels\Endurance.Web.Trial.ViewModels.csproj" />

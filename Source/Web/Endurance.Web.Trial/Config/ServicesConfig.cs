@@ -13,7 +13,8 @@
 
         private static void MapCustomServices(IServiceCollection services)
         {
-            services.AddScoped<IUsersDataService, UsersDataService>();
+            services.AddScoped<IUserBusinessService, UserBusinessService>();
+            services.AddScoped<IUserDataService, UserDataService>();
         }
     }
 }

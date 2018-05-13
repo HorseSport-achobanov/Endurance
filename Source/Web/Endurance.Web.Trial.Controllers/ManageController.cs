@@ -1,6 +1,5 @@
 ﻿namespace Endurance.Web.Trial.Controllers
 {
-    using System;
     using System.Text.Encodings.Web;
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Authorization;
@@ -8,26 +7,21 @@
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Extensions.Logging;
 
-    using Endurance.Data.Trial.Models.Account;
+    using Services.Trial.Contracts.Account;
     using ViewModels.ManageViewModels;
 
     [Authorize]
     [Route("[controller]/[action]")]
     public class ManageController : Controller
     {
-        private readonly UserManager<User> userManager;
-        private readonly SignInManager<User> signInManager;
-        private readonly ILogger logger;
+        private readonly IUserBusinessService userBusiness;
 
         public ManageController(
-          UserManager<User> userManager,
-          SignInManager<User> signInManager,
-          ILogger<ManageController> logger,
-          UrlEncoder urlEncoder)
-        {
-            this.userManager = userManager;
-            this.signInManager = signInManager;
-            this.logger = logger;
+            IUserBusinessService userBusiness,
+            ILogger<ManageController> logger,
+            UrlEncoder urlEncoder
+        ) {
+            this.userBusiness = userBusiness;
         }
 
         [TempData]
@@ -36,10 +30,7 @@
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            var user = await userManager.GetUserAsync(User);
-            if (user == null)
-                throw new ApplicationException($"Unable to load user with ID '{userManager.GetUserId(User)}'.");
-
+            var user = await userBusiness.GetUserAsync(User);
             var model = new IndexViewModel
             {
                 Username = user.UserName,
@@ -59,25 +50,7 @@
             if (!ModelState.IsValid)
                 return View(model);
 
-            var user = await userManager.GetUserAsync(User);
-            if (user == null)
-                throw new ApplicationException($"Unable to load user with ID '{userManager.GetUserId(User)}'.");
-
-            var email = user.Email;
-            if (model.Email != email)
-            {
-                var setEmailResult = await userManager.SetEmailAsync(user, model.Email);
-                if (!setEmailResult.Succeeded)
-                    throw new ApplicationException($"Unexpected error occurred setting email for user with ID '{user.Id}'.");
-            }
-
-            var phoneNumber = user.PhoneNumber;
-            if (model.PhoneNumber != phoneNumber)
-            {
-                var setPhoneResult = await userManager.SetPhoneNumberAsync(user, model.PhoneNumber);
-                if (!setPhoneResult.Succeeded)
-                    throw new ApplicationException($"Unexpected error occurred setting phone number for user with ID '{user.Id}'.");
-            }
+            await userBusiness.UpdateProfileInfo(User, model.Email, model.PhoneNumber);
 
             StatusMessage = "Your profile has been updated";
             return RedirectToAction(nameof(Index));
@@ -86,11 +59,7 @@
         [HttpGet]
         public async Task<IActionResult> ChangePassword()
         {
-            var user = await userManager.GetUserAsync(User);
-            if (user == null)
-                throw new ApplicationException($"Unable to load user with ID '{userManager.GetUserId(User)}'.");
-
-            var hasPassword = await userManager.HasPasswordAsync(user);
+            var hasPassword = await userBusiness.DoesUserHavePassword(User);
             if (!hasPassword)
                 return RedirectToAction(nameof(SetPassword));
 
@@ -105,33 +74,21 @@
             if (!ModelState.IsValid)
                 return View(model);
 
-            var user = await userManager.GetUserAsync(User);
-            if (user == null)
-                throw new ApplicationException($"Unable to load user with ID '{userManager.GetUserId(User)}'.");
-
-            var changePasswordResult = await userManager.ChangePasswordAsync(user, model.OldPassword, model.NewPassword);
+            var changePasswordResult = await userBusiness.ChangePasswordAsync(User, model.OldPassword, model.NewPassword);
             if (!changePasswordResult.Succeeded)
             {
                 AddErrors(changePasswordResult);
                 return View(model);
             }
 
-            await signInManager.SignInAsync(user, isPersistent: false);
-            logger.LogInformation("User changed their password successfully.");
             StatusMessage = "Your password has been changed.";
-
             return RedirectToAction(nameof(ChangePassword));
         }
 
         [HttpGet]
         public async Task<IActionResult> SetPassword()
         {
-            var user = await userManager.GetUserAsync(User);
-            if (user == null)
-                throw new ApplicationException($"Unable to load user with ID '{userManager.GetUserId(User)}'.");
-
-            var hasPassword = await userManager.HasPasswordAsync(user);
-
+            var hasPassword = await userBusiness.DoesUserHavePassword(User);
             if (hasPassword)
                 return RedirectToAction(nameof(ChangePassword));
 
@@ -146,18 +103,13 @@
             if (!ModelState.IsValid)
                 return View(model);
 
-            var user = await userManager.GetUserAsync(User);
-            if (user == null)
-                throw new ApplicationException($"Unable to load user with ID '{userManager.GetUserId(User)}'.");
-
-            var addPasswordResult = await userManager.AddPasswordAsync(user, model.NewPassword);
+            var addPasswordResult = await userBusiness.SetPasswordAsync(User, model.NewPassword);
             if (!addPasswordResult.Succeeded)
             {
                 AddErrors(addPasswordResult);
                 return View(model);
             }
 
-            await signInManager.SignInAsync(user, isPersistent: false);
             StatusMessage = "Your password has been set.";
 
             return RedirectToAction(nameof(SetPassword));

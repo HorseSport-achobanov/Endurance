@@ -5,16 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Data\" />
-    <Folder Include="Business\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="AutoMapper" Version="6.2.2" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\Common\Common.csproj" />
+    <ProjectReference Include="..\..\Data\Endurance.Data.Trial.Queries\Endurance.Data.Trial.Queries.csproj" />
+    <ProjectReference Include="..\Endurance.Services.Trial.Contracts\Endurance.Services.Trial.Contracts.csproj" />
   </ItemGroup>
 
 </Project>
