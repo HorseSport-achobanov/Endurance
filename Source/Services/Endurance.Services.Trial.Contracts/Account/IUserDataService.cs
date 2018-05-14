@@ -5,7 +5,9 @@
     using Data.Trial.Models.Account;
     using Microsoft.AspNetCore.Identity;
 
-    public interface IUserDataService
+    using global::Data.Common.Contracts;
+
+    public interface IUserDataService : IService
     {
         Task<IdentityResult> CreateAsync(User user, string password);
 
