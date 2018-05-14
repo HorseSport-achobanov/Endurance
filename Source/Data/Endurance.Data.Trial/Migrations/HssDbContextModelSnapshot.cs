@@ -8,7 +8,7 @@
     using Endurance.Data.Trial;
     
     [DbContext(typeof(HssDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    partial class HssDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {

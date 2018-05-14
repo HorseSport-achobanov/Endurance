@@ -3,12 +3,10 @@
     using System.Collections.Generic;
     using System.Diagnostics;
     using System.Linq;
-    using AutoMapper;
-    using AutoMapper.QueryableExtensions;
-    using Data.Trial.Models;
-    using global::Services.Common.Contracts;
     using Microsoft.AspNetCore.Mvc;
 
+    using Data.Trial.Models;
+    using global::Services.Common.Contracts;
     using ViewModels;
 
     public class HomeController : Controller

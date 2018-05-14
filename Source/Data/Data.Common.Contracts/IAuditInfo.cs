@@ -1,10 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Data.Common.Contracts
+﻿namespace Data.Common.Contracts
 {
-    interface IAuditInfo
+    using System;
+
+    public interface IAuditInfo
     {
+        DateTime CreatedOn { get; set; }
+
+        bool PreserveCreatedOn { get; set; }
+
+        DateTime? ModifiedOn { get; set; }
     }
 }
