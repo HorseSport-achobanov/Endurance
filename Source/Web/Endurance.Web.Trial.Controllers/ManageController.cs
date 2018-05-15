@@ -2,6 +2,7 @@
 {
     using System.Text.Encodings.Web;
     using System.Threading.Tasks;
+    using global::Services.Common.Contracts;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
@@ -12,7 +13,7 @@
 
     [Authorize]
     [Route("[controller]/[action]")]
-    public class ManageController : Controller
+    public class ManageController : BaseController
     {
         private readonly IUserBusinessService userBusiness;
 
@@ -23,9 +24,6 @@
         ) {
             this.userBusiness = userBusiness;
         }
-
-        [TempData]
-        public string StatusMessage { get; set; }
 
         [HttpGet]
         public async Task<IActionResult> Index()
@@ -111,20 +109,8 @@
             }
 
             StatusMessage = "Your password has been set.";
-
+            
             return RedirectToAction(nameof(SetPassword));
         }
-
-        #region Helpers
-
-        private void AddErrors(IdentityResult result)
-        {
-            foreach (var error in result.Errors)
-            {
-                ModelState.AddModelError(string.Empty, error.Description);
-            }
-        }
-
-        #endregion
     }
 }

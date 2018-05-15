@@ -10,9 +10,8 @@
     using Services.Trial.Contracts.Account;
     using ViewModels.Account;
 
-    [Authorize]
     [Route("[controller]/[action]")]
-    public class AccountController : Controller
+    public class AccountController : BaseController
     {
         private readonly IUserBusinessService userBusiness;
 
@@ -93,14 +92,6 @@
         }
 
         #region Helpers
-
-        private void AddErrors(IdentityResult result)
-        {
-            foreach (var error in result.Errors)
-            {
-                ModelState.AddModelError(string.Empty, error.Description);
-            }
-        }
 
         private IActionResult RedirectToLocal(string returnUrl)
         {
