@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Identity;
-
-namespace Endurance.Data.Trial.Models.Account
+﻿namespace Endurance.Data.Trial.Models.Account
 {
+    using Microsoft.AspNetCore.Identity;
+
     public class User : IdentityUser
     {
     }
