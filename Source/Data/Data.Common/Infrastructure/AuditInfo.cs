@@ -1,4 +1,4 @@
-﻿namespace Data.Common
+﻿namespace Data.Common.Infrastructure
 {
     using System;
     using Contracts;

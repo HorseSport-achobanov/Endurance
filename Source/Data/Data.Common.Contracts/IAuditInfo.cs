@@ -4,9 +4,9 @@
 
     public interface IAuditInfo
     {
-        DateTime CreatedOn { get; set; }
-
         bool PreserveCreatedOn { get; set; }
+
+        DateTime CreatedOn { get; set; }
 
         DateTime? ModifiedOn { get; set; }
     }

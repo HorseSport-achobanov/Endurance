@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Endurance.Web.Trial.Controllers
+﻿namespace Endurance.Web.Trial.Controllers
 {
     using System.Security.Claims;
     using Microsoft.AspNetCore.Authorization;

@@ -8,7 +8,7 @@
 
     using Endurance.Data.Trial;
     
-    [DbContext(typeof(HssDbContext))]
+    [DbContext(typeof(TrialDbContext))]
     [Migration("00000000000000_CreateIdentitySchema")]
     partial class CreateIdentitySchema
     {
