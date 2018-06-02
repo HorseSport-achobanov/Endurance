@@ -5,8 +5,8 @@
     using Data.Trial.Models.Account;
     using Microsoft.AspNetCore.Identity;
 
-    using global::Data.Common.Contracts;
-    
+    using global::Services.Common.Contracts;
+
     public interface IUserBusinessService : IService
     {
         Task<IdentityResult> Register(User user, string password);

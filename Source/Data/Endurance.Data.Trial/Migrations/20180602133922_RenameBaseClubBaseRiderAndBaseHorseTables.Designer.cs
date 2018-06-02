@@ -13,9 +13,10 @@ using System;
 namespace Endurance.Web.Trial.Data.Migrations
 {
     [DbContext(typeof(TrialDbContext))]
-    partial class HssDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180602133922_RenameBaseClubBaseRiderAndBaseHorseTables")]
+    partial class RenameBaseClubBaseRiderAndBaseHorseTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -188,7 +189,7 @@ namespace Endurance.Web.Trial.Data.Migrations
 
                     b.HasIndex("TrialId");
 
-                    b.ToTable("Competitors");
+                    b.ToTable("TrialCompetitors");
                 });
 
             modelBuilder.Entity("Endurance.Data.Trial.Models.TrialRound", b =>
@@ -209,7 +210,7 @@ namespace Endurance.Web.Trial.Data.Migrations
 
                     b.HasIndex("TrialId");
 
-                    b.ToTable("Rounds");
+                    b.ToTable("TrialRounds");
 
                     b.HasDiscriminator<string>("Discriminator").HasValue("TrialRound");
                 });
@@ -348,7 +349,7 @@ namespace Endurance.Web.Trial.Data.Migrations
 
                     b.HasIndex("TrialCompetitorId");
 
-                    b.ToTable("RoundPerformances");
+                    b.ToTable("TrialRoundPerformance");
 
                     b.HasDiscriminator().HasValue("TrialRoundPerformance");
                 });

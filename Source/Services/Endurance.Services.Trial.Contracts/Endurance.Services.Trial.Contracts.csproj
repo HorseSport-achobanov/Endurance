@@ -18,6 +18,7 @@
     <ProjectReference Include="..\..\Common\Common.csproj" />
     <ProjectReference Include="..\..\Data\Data.Common.Contracts\Data.Common.Contracts.csproj" />
     <ProjectReference Include="..\..\Data\Endurance.Data.Trial.Models\Endurance.Data.Trial.Models.csproj" />
+    <ProjectReference Include="..\Services.Common.Contracts\Services.Common.Contracts.csproj" />
   </ItemGroup>
 
 </Project>

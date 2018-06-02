@@ -13,9 +13,10 @@ using System;
 namespace Endurance.Web.Trial.Data.Migrations
 {
     [DbContext(typeof(TrialDbContext))]
-    partial class HssDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180602135512_RestructuredAndRenamedTables")]
+    partial class RestructuredAndRenamedTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

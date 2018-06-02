@@ -13,9 +13,10 @@ using System;
 namespace Endurance.Web.Trial.Data.Migrations
 {
     [DbContext(typeof(TrialDbContext))]
-    partial class HssDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180602132915_InitialDatabaseStucture")]
+    partial class InitialDatabaseStucture
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -37,7 +38,7 @@ namespace Endurance.Web.Trial.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Clubs");
+                    b.ToTable("BaseClub");
                 });
 
             modelBuilder.Entity("Data.Common.BaseHorse", b =>
@@ -57,7 +58,7 @@ namespace Endurance.Web.Trial.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Horses");
+                    b.ToTable("BaseHorse");
                 });
 
             modelBuilder.Entity("Data.Common.BaseRider", b =>
@@ -81,7 +82,7 @@ namespace Endurance.Web.Trial.Data.Migrations
 
                     b.HasIndex("ClubId");
 
-                    b.ToTable("Riders");
+                    b.ToTable("BaseRider");
                 });
 
             modelBuilder.Entity("Endurance.Data.Trial.Models.Account.User", b =>
@@ -188,7 +189,7 @@ namespace Endurance.Web.Trial.Data.Migrations
 
                     b.HasIndex("TrialId");
 
-                    b.ToTable("Competitors");
+                    b.ToTable("TrialCompetitors");
                 });
 
             modelBuilder.Entity("Endurance.Data.Trial.Models.TrialRound", b =>
@@ -209,7 +210,7 @@ namespace Endurance.Web.Trial.Data.Migrations
 
                     b.HasIndex("TrialId");
 
-                    b.ToTable("Rounds");
+                    b.ToTable("TrialRounds");
 
                     b.HasDiscriminator<string>("Discriminator").HasValue("TrialRound");
                 });
@@ -348,7 +349,7 @@ namespace Endurance.Web.Trial.Data.Migrations
 
                     b.HasIndex("TrialCompetitorId");
 
-                    b.ToTable("RoundPerformances");
+                    b.ToTable("TrialRoundPerformance");
 
                     b.HasDiscriminator().HasValue("TrialRoundPerformance");
                 });

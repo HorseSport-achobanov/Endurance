@@ -2,11 +2,16 @@
 {
     using System;
     using System.Collections.Generic;
+
     using global::Data.Common.Contracts;
 
     public class Trial : IIdentifiable<int>, IAuditInfo
     {
         public int Id { get; set; }
+
+        public string Name { get; set; }
+
+        public DateTime Date { get; set; }
 
         public string Location { get; set; }
 

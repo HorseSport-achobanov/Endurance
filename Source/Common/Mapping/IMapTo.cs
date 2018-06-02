@@ -1,6 +1,6 @@
 ﻿namespace Common.Mapping
 {
-    interface IMapTo<T>
+    public interface IMapTo<T>
         where T : class
     {
     }
