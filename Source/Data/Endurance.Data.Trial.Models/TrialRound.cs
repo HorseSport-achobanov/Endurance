@@ -1,10 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Endurance.Data.Trial.Models
+﻿namespace Endurance.Data.Trial.Models
 {
-    class TrialRound
+    using System;
+    using global::Data.Common.Contracts;
+    public class TrialRound : IIdentifiable<int>
     {
+        public int Id { get; set; }
+
+        public float LengthInKilometers { get; set; }
+
+        public TimeSpan MaxRestTimeSpan { get; set; }
     }
 }

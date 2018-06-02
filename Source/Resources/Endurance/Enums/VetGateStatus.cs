@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Resources.Endurance.Enums
+﻿namespace Resources.Endurance.Enums
 {
-    class VetGateStatus
+    public enum VetGateStatus
     {
+        NotEntered = 0,
+        Passed = 1,
+        Attempted = 2,
+        Disqualified = 3
     }
 }

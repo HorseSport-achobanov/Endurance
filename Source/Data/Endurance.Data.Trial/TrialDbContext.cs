@@ -3,19 +3,28 @@
     using System;
     using System.Diagnostics;
     using System.Linq;
-    using global::Data.Common.Contracts;
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
 
+    using global::Data.Common.Contracts;
+    using Models;
     using Models.Account;
 
-    public class HssDbContext : IdentityDbContext<User>
+    public class TrialDbContext : IdentityDbContext<User>
     {
-        public HssDbContext(DbContextOptions<HssDbContext> options)
+        public TrialDbContext(DbContextOptions<TrialDbContext> options)
             : base(options)
         {
         }
 
+        public DbSet<Trial> Trials { get; set; }
+
+        public DbSet<TrialRound> TrialRounds { get; set; }
+
+        public DbSet<TrialCompetitor> TrialCompetitors { get; set; }
+
+        public DbSet<TrialRoundPerformance> TrialRoundPerformances { get; set; }
+            
         public override int SaveChanges()
         {
             this.ApplyAuditInfoRules();

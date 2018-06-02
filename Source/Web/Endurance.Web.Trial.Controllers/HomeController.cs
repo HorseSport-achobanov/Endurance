@@ -5,8 +5,8 @@
     using System.Linq;
     using Microsoft.AspNetCore.Mvc;
 
-    using Data.Trial.Models;
     using global::Services.Common.Contracts;
+    using Data.Trial.Models;
     using ViewModels;
 
     public class HomeController : Controller

@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Endurance.Data.Trial.Models
+﻿namespace Data.Common
 {
-    class Rider
+    public class Rider
     {
+
     }
 }
