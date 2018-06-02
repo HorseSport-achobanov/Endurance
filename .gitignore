@@ -330,5 +330,7 @@ ASALocalRun/
 .mfractor/
 
 # Exclude bundled styles and scripts
-*/wwwroot/js/*
-*/wwwroot/css/*
+**/wwwroot/js/*
+**/wwwroot/css/*
+**/*.min.*
+Source/Web/Endurance.Web.Trial/wwwroot/css/site.min.css
