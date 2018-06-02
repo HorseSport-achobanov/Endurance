@@ -328,3 +328,7 @@ ASALocalRun/
 
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
+
+# Exclude bundled styles and scripts
+*/wwwroot/js/*
+*/wwwroot/css/*
