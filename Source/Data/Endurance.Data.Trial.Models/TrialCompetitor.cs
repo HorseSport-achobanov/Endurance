@@ -10,6 +10,6 @@
 
         public override BaseHorse Horse { get; set; }
 
-        public ICollection<TrialRoundPerformance> Performances { get; set; }
+        public IList<TrialRoundPerformance> Performances { get; set; }
     }
 }

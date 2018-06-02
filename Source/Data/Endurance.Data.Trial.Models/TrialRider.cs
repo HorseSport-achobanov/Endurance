@@ -6,6 +6,6 @@
 
     public class TrialRider : BaseRider
     {
-        public ICollection<TrialCompetitor> Competitors { get; set; }
+        public IList<TrialCompetitor> Competitors { get; set; }
     }
 }

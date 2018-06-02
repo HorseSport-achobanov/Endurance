@@ -6,6 +6,6 @@
 
     public class TrialHorse : BaseHorse
     {
-        public ICollection<TrialCompetitor> Competitors { get; set; }
+        public IList<TrialCompetitor> Competitors { get; set; }
     }
 }

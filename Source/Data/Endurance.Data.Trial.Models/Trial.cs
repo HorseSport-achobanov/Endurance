@@ -17,9 +17,9 @@
 
         public int NumberOfRounds { get; set; }
 
-        public ICollection<TrialRound> Rounds { get; set; }
+        public IList<TrialRound> Rounds { get; set; }
 
-        public ICollection<TrialCompetitor> Competitors { get; set; }
+        public IList<TrialCompetitor> Competitors { get; set; }
 
         public DateTime StartTime { get; set; }
 
