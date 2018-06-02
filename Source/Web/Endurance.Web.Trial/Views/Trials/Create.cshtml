@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "View";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using Endurance.Web.Trial.Controllers
+@model Endurance.Web.Trial.ViewModels.Trial.CreateTrialViewModel
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <form asp-controller="Trials"
+                  asp-action="Create"
+                  method="post">
+
+                @Html.EditorFor(m => m.Name)
+
+                @Html.EditorFor(m => m.Location)
+
+                @Html.Partial("_TrialRound")
+
+                <input type="submit" class="btn btn-primary inline" value="Create" />
+            </form>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script src="/js/generateRounds.min.js"></script>
+}

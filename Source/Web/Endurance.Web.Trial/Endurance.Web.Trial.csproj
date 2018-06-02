@@ -5,8 +5,15 @@
     <UserSecretsId>aspnet-Endurance.Web.Trial-247988AA-5A6E-4187-99D0-C6D769513314</UserSecretsId>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Content Include="App_Content\Scripts\generateRounds.js" />
+    <Content Include="App_Content\Styles\site.css" />
+    <Content Include="App_Content\Styles\site.min.css" />
+  </ItemGroup>
+
 
   <ItemGroup>
+    <PackageReference Include="BuildBundlerMinifier" Version="2.8.391" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.6" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.3" PrivateAssets="All" />
   </ItemGroup>
@@ -26,6 +33,11 @@
     <ProjectReference Include="..\..\Services\Services.Common\Services.Common.csproj" />
     <ProjectReference Include="..\Endurance.Web.Trial.Controllers\Endurance.Web.Trial.Controllers.csproj" />
     <ProjectReference Include="..\Endurance.Web.Trial.ViewModels\Endurance.Web.Trial.ViewModels.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\css\" />
+    <Folder Include="wwwroot\js\" />
   </ItemGroup>
 
 </Project>
