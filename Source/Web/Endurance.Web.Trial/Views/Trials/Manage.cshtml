@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "View";
+}
+
+@model Endurance.Web.Trial.ViewModels.Trial.ManageTrialViewModel
+
+<header>
+    <div class="row">
+        <div class="col-md-4">
+            <h1>@Model.Name</h1>
+        </div>
+        <div class="col-md-4">
+            <p>@Model.Location</p>
+            <p>@Model.Date</p>
+        </div>
+        <div class="col-md-4">
+            <p>Rouds: <strong>@Model.NumberOfRounds</strong></p>
+        </div>
+    </div>
+</header>
+<section id="competitors-container">
+    @Html.EditorFor(m => m.Competitors);
+</section>

@@ -1,5 +1,7 @@
 ﻿namespace Services.Common
 {
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Linq;
     using AutoMapper;
     using AutoMapper.QueryableExtensions;
@@ -20,7 +22,10 @@
         public void Map<TSource, TDestination>(TSource source, TDestination destination) =>
             this.mapper.Map(source, destination);
 
-        public IQueryable<TDestination> MapCollection<TDestination>(IQueryable source, object parameters = null) =>
+        public IQueryable<TDestination> MapQueryable<TDestination>(IQueryable source, object parameters = null) =>
             source.ProjectTo<TDestination>(this.mapper.ConfigurationProvider, parameters);
+
+        public IList<TDestination> MapCollection<TSource, TDestination>(IList<TSource> source) =>
+            mapper.Map<IList<TSource>, IList<TDestination>>(source);
     }
 }

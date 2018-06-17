@@ -8,13 +8,13 @@
     using Microsoft.AspNetCore.Identity;
     using Microsoft.Extensions.Logging;
 
-    public class UserBusinessService : IUserBusinessService
+    public class UsersBusinessService : IUsersBusinessService
     {
-        private readonly IUserDataService userData;
+        private readonly IUsersDataService userData;
         private readonly SignInManager<User> signInManager;
 
-        public UserBusinessService(
-            IUserDataService userData,
+        public UsersBusinessService(
+            IUsersDataService userData,
             SignInManager<User> signInManager
         ) {
             this.userData = userData;

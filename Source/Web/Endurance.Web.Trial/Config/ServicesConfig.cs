@@ -7,14 +7,19 @@
     using global::Services.Common;
     using global::Services.Common.Contracts;
     using Common.Mapping;
+    using Endurance.Data.Trial.Contracts.Trial;
+    using Endurance.Data.Trial.Queries.Trial;
     using Services.Trial.Account;
     using Services.Trial.Contracts.Account;
+    using Services.Trial.Contracts.Trial;
+    using Services.Trial.Trial;
 
     public static class ServicesConfig
     {
         public static void AddCustomServices(this IServiceCollection services)
         {
             MapCustomServices(services);
+            MapQueries(services);
         }
 
         public static void AddMapper(this IServiceCollection services)
@@ -25,9 +30,16 @@
 
         private static void MapCustomServices(IServiceCollection services)
         {
-            services.AddScoped<IUserBusinessService, UserBusinessService>();
-            services.AddScoped<IUserDataService, UserDataService>();
+            services.AddScoped<IUsersBusinessService, UsersBusinessService>();
+            services.AddScoped<IUsersDataService, UsersDataService>();
             services.AddScoped<IAutomapperService, AutomapperService>();
+            services.AddScoped<ITrialsBusinessService, TrialsBusinessService>();
+            services.AddScoped<ITrialsDataService, TrialsDataService>();
+        }
+
+        private static void MapQueries(IServiceCollection services)
+        {
+            services.AddScoped<IQueryTrials, QueryTrials>();
         }
     }
 }

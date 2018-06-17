@@ -28,7 +28,7 @@
             };
 
             var personQuerable = new EnumerableQuery<Person>(new List<Person>() { person });
-            var model = mapper.MapCollection<PersonViewModel>(personQuerable).FirstOrDefault();
+            var model = mapper.MapQueryable<PersonViewModel>(personQuerable).FirstOrDefault();
             return View(model);
         }
 

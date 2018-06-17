@@ -7,7 +7,7 @@
 
     using global::Services.Common.Contracts;
 
-    public interface IUserDataService : IService
+    public interface IUsersDataService : IService
     {
         Task<IdentityResult> CreateAsync(User user, string password);
 

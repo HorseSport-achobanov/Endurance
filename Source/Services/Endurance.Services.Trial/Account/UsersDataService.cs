@@ -6,17 +6,13 @@
     using Data.Trial.Models.Account;
     using Microsoft.AspNetCore.Identity;
 
-    public class UserDataService : IUserDataService
+    public class UsersDataService : IUsersDataService
     {
         private readonly UserManager<User> userManager;
-        private readonly SignInManager<User> signInManager;
 
-        public UserDataService(
-            UserManager<User> userManager,
-            SignInManager<User> signInManager
-        ) {
+        public UsersDataService(UserManager<User> userManager)
+        {
             this.userManager = userManager;
-            this.signInManager = signInManager;
         }
 
         public async Task<IdentityResult> CreateAsync(User user, string password) =>

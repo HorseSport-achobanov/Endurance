@@ -13,9 +13,9 @@
     [Route("[controller]/[action]")]
     public class AccountController : BaseController
     {
-        private readonly IUserBusinessService userBusiness;
+        private readonly IUsersBusinessService userBusiness;
 
-        public AccountController(IUserBusinessService userBusiness)
+        public AccountController(IUsersBusinessService userBusiness)
         {
             this.userBusiness = userBusiness;
         }

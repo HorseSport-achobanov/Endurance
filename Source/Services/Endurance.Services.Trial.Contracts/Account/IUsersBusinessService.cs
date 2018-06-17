@@ -7,7 +7,7 @@
 
     using global::Services.Common.Contracts;
 
-    public interface IUserBusinessService : IService
+    public interface IUsersBusinessService : IService
     {
         Task<IdentityResult> Register(User user, string password);
 

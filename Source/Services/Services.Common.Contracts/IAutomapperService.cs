@@ -1,5 +1,7 @@
 ﻿namespace Services.Common.Contracts
 {
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Linq;
 
     public interface IAutomapperService
@@ -8,6 +10,8 @@
 
         void Map<TSource, TDestination>(TSource source, TDestination destination);
 
-        IQueryable<TDestination> MapCollection<TDestination>(IQueryable source, object parameters = null);
+        IQueryable<TDestination> MapQueryable<TDestination>(IQueryable source, object parameters = null);
+
+        IList<TDestination> MapCollection<TSource, TDestination>(IList<TSource> source);
     }
 }

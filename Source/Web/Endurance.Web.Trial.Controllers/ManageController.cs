@@ -15,10 +15,10 @@
     [Route("[controller]/[action]")]
     public class ManageController : BaseController
     {
-        private readonly IUserBusinessService userBusiness;
+        private readonly IUsersBusinessService userBusiness;
 
         public ManageController(
-            IUserBusinessService userBusiness,
+            IUsersBusinessService userBusiness,
             ILogger<ManageController> logger,
             UrlEncoder urlEncoder
         ) {
