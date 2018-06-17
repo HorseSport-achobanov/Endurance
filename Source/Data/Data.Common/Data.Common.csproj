@@ -8,4 +8,8 @@
     <ProjectReference Include="..\Data.Common.Contracts\Data.Common.Contracts.csproj" />
   </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Microsoft.AspNetCore.All" Version="2.1.0" />
+    </ItemGroup>
+
 </Project>

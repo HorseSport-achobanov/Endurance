@@ -17,4 +17,8 @@
     <ProjectReference Include="..\Services.Common.Contracts\Services.Common.Contracts.csproj" />
   </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Microsoft.AspNetCore.All" Version="2.1.0" />
+    </ItemGroup>
+
 </Project>
