@@ -50,11 +50,5 @@
 
             return View(viewModel);
         }
-
-        [HttpPost]
-        public IActionResult Manager(ManageTrialViewModel model)
-        {
-            return new EmptyResult();
-        }
     }
 }
