@@ -6,7 +6,6 @@
     using global::Data.Common.Contracts;
     using Resources.Endurance.Enums;
 
-    [Table("RoundPerformances")]
     public class TrialRoundPerformance : TrialRound, IAuditInfo
     {
         public DateTime StartedAtTime { get; set; }
