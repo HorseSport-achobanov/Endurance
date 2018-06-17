@@ -1,0 +1,10 @@
+﻿@using Resources.Endurance.Enums
+@model Enum
+@{
+    var model = (Enum) Model;
+}
+<div class="form-group">
+    <label asp-for="@Model" class="control-label"></label>
+    <select asp-for="@Model" asp-items="@Html.GetEnumSelectList(model.GetType())"></select>
+    <span asp-validation-for="@Model" class="text-danger"></span>
+</div>

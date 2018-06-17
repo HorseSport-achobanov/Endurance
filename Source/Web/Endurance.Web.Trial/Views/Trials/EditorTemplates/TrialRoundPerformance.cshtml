@@ -1,0 +1,17 @@
+﻿@model Endurance.Data.Trial.Models.TrialRoundPerformance
+
+<div class="performance-container">
+    <form 
+        method="post"
+        action="/competitors/update/@Model.Id">
+        
+        @Html.EditorFor(m => m.StartedAtTime)
+        
+        @Html.EditorFor(m => m.FinishedAtTime)
+        
+        @Html.EditorFor(m => m.EnteredAtVetGateTime)
+        
+        @Html.EditorFor(m => m.VetGateStatus)
+
+    </form>
+</div>

@@ -19,5 +19,9 @@
     </div>
 </header>
 <section id="competitors-container">
-    @Html.EditorFor(m => m.Competitors);
+@foreach (var competitor in Model.Competitors)
+{
+    @Html.Partial("_CompetitorPanel", competitor)
+
+}
 </section>

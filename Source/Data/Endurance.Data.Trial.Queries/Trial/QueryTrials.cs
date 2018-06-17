@@ -1,6 +1,8 @@
 ﻿namespace Endurance.Data.Trial.Queries.Trial
 {
+    using System.Linq;
     using Contracts.Trial;
+    using Microsoft.EntityFrameworkCore.ChangeTracking;
     using Models;
 
     public class QueryTrials : IQueryTrials
@@ -13,5 +15,15 @@
         }
 
         public Trial GetById(int id) => this.dbContext.Trials.Find(id);
+
+        public IQueryable<Trial> GetQueryableAll() => this.dbContext.Trials;
+
+        public EntityEntry<Trial> Create(Trial trial)
+        {
+            var entity = this.dbContext.Trials.Add(trial);
+            this.dbContext.SaveChanges();
+
+            return entity;
+        }
     }
 }

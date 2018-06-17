@@ -7,15 +7,8 @@
     using Data.Trial.Models;
     using Services.Common.Contracts;
 
-    public class ManageTrialViewModel : IMapFrom<Trial>, IHasCustomMappings
+    public class ManageTrialViewModel : IMapFrom<Trial>
     {
-        private readonly IAutomapperService mapper;
-
-        public ManageTrialViewModel(IAutomapperService mapper)
-        {
-            this.mapper = mapper;
-        }
-
         public int Id { get; set; }
 
         public string Name { get; set; }
@@ -30,12 +23,12 @@
 
         public DateTime StartTime { get; set; }
 
-        public void CreateMappings(IMapperConfigurationExpression configuration)
-        {
-            configuration.CreateMap<Trial, ManageTrialViewModel>()
-                .ForMember(m => Competitors,
-                    opt => opt.MapFrom(e => 
-                        mapper.MapCollection<TrialCompetitor, TrialCompetitorViewModel>(e.Competitors)));
-        }
+//        public void CreateMappings(IMapperConfigurationExpression configuration)
+//        {
+//            configuration.CreateMap<Trial, ManageTrialViewModel>()
+//                .ForMember(m => Competitors,
+//                    opt => opt.MapFrom(e => 
+//                        mapper.MapCollection<TrialCompetitor, TrialCompetitorViewModel>(e.Competitors)));
+//        }
     }
 }

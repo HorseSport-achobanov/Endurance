@@ -1,8 +1,10 @@
 ﻿namespace Endurance.Web.Trial.Controllers
 {
-    using AutoMapper;
-    using global::Services.Common.Contracts;
+    using System.Linq;
+    using Data.Trial.Models;
     using Microsoft.AspNetCore.Mvc;
+
+    using global::Services.Common.Contracts;
     using Services.Trial.Contracts.Trial;
     using ViewModels.Trial;
 
@@ -24,7 +26,7 @@
         {
             return View();
         }
-
+ 
         [HttpPost]
         public IActionResult Create(CreateTrialViewModel viewModel)
         {
@@ -33,13 +35,25 @@
                 return View(viewModel);
             }
 
-            return RedirectToAction("Index", "Home");
+            var trial = this.trialsData.Create(this.mapper.Map<Trial>(viewModel));
+
+            return RedirectToAction("Manage", new { id = trial.Id });
         }
 
         [HttpGet]
-        public IActionResult Manage(int trialId)
+        public IActionResult List()
         {
-            var trial = this.trialsData.GetById(trialId);
+            var viewModel = mapper
+                .MapQueryable<TrialShortViewModel>(this.trialsData.GetQueryableAll())
+                .ToList();
+
+            return View(viewModel);
+        }
+
+        [HttpGet]
+        public IActionResult Manage(int id)
+        {
+            var trial = this.trialsData.GetById(id);
             if (trial == null)
             {
                 ViewData["Error"] = "No such Trial";

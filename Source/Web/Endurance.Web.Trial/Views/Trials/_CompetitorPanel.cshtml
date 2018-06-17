@@ -3,6 +3,7 @@
 @{
     var riderName = Model.Rider.FirstName + Model.Rider.LastName;
 }
+
 <div class="row">
     <div class="competitor-container">
         <div class="col-md-2 head">
@@ -11,10 +12,16 @@
             <p>Horse: @Model.Horse.Name</p>
         </div>
         <div class="col-md-6 rounds">
-            
+        @foreach (var performance in Model.Performances)
+        {
+            @Html.EditorFor(m => performance)
+        }
         </div>
         <div class="col-md-4 stats">
-
+        @foreach (var avarageSpeed in Model.TotalAvarageSpeedForEachRound)
+        {
+            @Html.DisplayFor(m => avarageSpeed)
+        }
         </div>
     </div>
 </div>
