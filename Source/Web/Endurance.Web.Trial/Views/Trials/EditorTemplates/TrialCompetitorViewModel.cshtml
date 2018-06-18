@@ -11,17 +11,13 @@
             <p>Rider: @riderName</p>
             <p>Horse: @Model.Horse.Name</p>
         </div>
+
         <div class="col-md-6 rounds">
-        @foreach (var performance in Model.Performances)
-        {
-            @Html.EditorFor(m => performance)
-        }
+            @Html.EditorFor(m => m.Performances)
         </div>
+
         <div class="col-md-4 stats">
-        @foreach (var avarageSpeed in Model.TotalAvarageSpeedForEachRound)
-        {
-            @Html.DisplayFor(m => avarageSpeed)
-        }
+            @Html.DisplayFor(m => m.TotalAvarageSpeedForEachRound)
         </div>
     </div>
 </div>
