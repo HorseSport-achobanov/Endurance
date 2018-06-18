@@ -21,8 +21,6 @@
 
         public IList<TrialCompetitor> Competitors { get; set; }
 
-        [DataType(DataType.Time)]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:HH:mm}")]
         public DateTime StartTime { get; set; }
 
         public bool PreserveCreatedOn { get; set; }

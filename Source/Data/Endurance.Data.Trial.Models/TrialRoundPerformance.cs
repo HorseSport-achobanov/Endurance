@@ -12,7 +12,6 @@
 
         public DateTime? FinishedAtTime { get; set; }
 
-        [DataType(DataType.Time)]
         public DateTime? EnteredAtVetGateTime { get; set; }
 
         public VetGateStatus VetGateStatus { get; set; }
