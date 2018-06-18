@@ -6,7 +6,7 @@
 
     public interface IQueryTrials
     {
-        Trial GetById(int id);
+        IQueryable<Trial> GetQueryableById(int id);
 
         IQueryable<Trial> GetQueryableAll();
 

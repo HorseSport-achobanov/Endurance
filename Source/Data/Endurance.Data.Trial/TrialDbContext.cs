@@ -17,6 +17,7 @@
         {
         }
 
+
         public DbSet<Trial> Trials { get; set; }
 
         public DbSet<TrialRound> TrialRounds { get; set; }

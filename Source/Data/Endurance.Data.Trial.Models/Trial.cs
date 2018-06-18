@@ -2,7 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
-
+    using System.ComponentModel.DataAnnotations;
     using global::Data.Common.Contracts;
 
     public class Trial : IIdentifiable<int>, IAuditInfo
@@ -21,6 +21,8 @@
 
         public IList<TrialCompetitor> Competitors { get; set; }
 
+        [DataType(DataType.Time)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:HH:mm}")]
         public DateTime StartTime { get; set; }
 
         public bool PreserveCreatedOn { get; set; }

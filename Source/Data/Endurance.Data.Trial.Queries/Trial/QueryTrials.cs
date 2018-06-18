@@ -14,9 +14,12 @@
             this.dbContext = dbContext;
         }
 
-        public Trial GetById(int id) => this.dbContext.Trials.Find(id);
+        public IQueryable<Trial> GetQueryableById(int id) => 
+            this.dbContext.Trials
+                .Where(t => t.Id == id);
 
-        public IQueryable<Trial> GetQueryableAll() => this.dbContext.Trials;
+        public IQueryable<Trial> GetQueryableAll() => 
+            this.dbContext.Trials;
 
         public EntityEntry<Trial> Create(Trial trial)
         {

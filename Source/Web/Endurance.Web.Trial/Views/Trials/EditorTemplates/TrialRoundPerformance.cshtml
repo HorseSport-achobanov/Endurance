@@ -5,7 +5,7 @@
         method="post"
         action="/competitors/update/@Model.Id">
         
-        @Html.EditorFor(m => m.StartedAtTime)
+        @Html.EditorFor(m => m.StartedAtTime, "DateTime")
         
         @Html.EditorFor(m => m.FinishedAtTime)
         

@@ -3,7 +3,9 @@
     using System;
     using System.Collections.Generic;
     using global::Data.Common;
+    using Microsoft.AspNetCore.Identity;
     using Models;
+    using Models.Account;
 
     public static class Data
     {
@@ -12,7 +14,7 @@
         private static IList<TrialHorse> horses;
         private static IList<TrialRider> riders;
         private static IList<TrialCompetitor> competitors;
-        private static IList<TrialRoundPerformance> performances;
+        private static IList<IList<TrialRoundPerformance>> performances;
 
         public static Trial Trial {
             get
@@ -25,6 +27,22 @@
                 PopulateTrial();
 
                 return trial;
+            }
+        }
+
+        public static User AdminUser
+        {
+            get
+            {
+                var user = new User
+                {
+                    UserName = "achobanov@gmail.com",
+                    Email = "achobanov@gmail.com",
+                    SecurityStamp = Guid.NewGuid().ToString()
+                };
+                user.PasswordHash = new PasswordHasher<User>().HashPassword(user, "Test/12");
+
+                return user;
             }
         }
 
@@ -85,13 +103,32 @@
 
         private static void PopulatePerformances()
         {
-            performances = new List<TrialRoundPerformance>()
+            performances = new List<IList<TrialRoundPerformance>>()
             {
-                new TrialRoundPerformance()
+                new List<TrialRoundPerformance>()
                 {
-                    StartedAtTime = new DateTime(2018, 7, 1, 9, 0, 0)
+                    new TrialRoundPerformance()
+                    {
+                        StartedAtTime = new DateTime(2018, 7, 1, 9, 0, 0)
+                    },
+                    new TrialRoundPerformance()
                 },
-                new TrialRoundPerformance()
+                new List<TrialRoundPerformance>()
+                {
+                    new TrialRoundPerformance()
+                    {
+                        StartedAtTime = new DateTime(2018, 7, 1, 9, 0, 0)
+                    },
+                    new TrialRoundPerformance()
+                },
+                new List<TrialRoundPerformance>()
+                {
+                    new TrialRoundPerformance()
+                    {
+                        StartedAtTime = new DateTime(2018, 7, 1, 9, 0, 0)
+                    },
+                    new TrialRoundPerformance()
+                }
             };
         }
 
@@ -104,21 +141,21 @@
                     Horse = horses[0],
                     Rider = riders[0],
                     Number = 1,
-                    Performances = performances,
+                    Performances = performances[0],
                 },
                 new TrialCompetitor()
                 {
                     Horse = horses[1],
                     Rider = riders[1],
                     Number = 2,
-                    Performances = performances,
+                    Performances = performances[1],
                 },
                 new TrialCompetitor()
                 {
                     Horse = horses[2],
                     Rider = riders[2],
                     Number = 3,
-                    Performances = performances,
+                    Performances = performances[2],
                 },
             };
         }

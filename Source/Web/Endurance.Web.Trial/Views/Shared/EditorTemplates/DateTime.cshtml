@@ -1,7 +1,7 @@
-﻿@model DateTime
+﻿@model DateTime?
 
 <div class="form-group">
     <label asp-for="@Model" class="control-label"></label>
-    <input asp-for="@Model" type="datetime" class="form-control" />
+    <input asp-for="@Model" type="time" class="form-control" />
     <span asp-validation-for="@Model" class="text-danger"></span>
 </div>

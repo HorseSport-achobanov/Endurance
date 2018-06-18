@@ -7,6 +7,11 @@
 
     public class TrialCompetitorViewModel : IMapFrom<TrialCompetitor>
     {
+        public TrialCompetitorViewModel()
+        {
+            TotalAvarageSpeedForEachRound = new List<float>();
+        }
+
         public int Number { get; set; }
 
         public BaseRider Rider { get; set; }

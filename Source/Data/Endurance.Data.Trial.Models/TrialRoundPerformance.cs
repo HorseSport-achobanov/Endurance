@@ -1,22 +1,23 @@
 ﻿namespace Endurance.Data.Trial.Models
 {
     using System;
-    using System.ComponentModel.DataAnnotations.Schema;
+    using System.ComponentModel.DataAnnotations;
 
     using global::Data.Common.Contracts;
     using Resources.Endurance.Enums;
 
     public class TrialRoundPerformance : TrialRound, IAuditInfo
     {
-        public DateTime StartedAtTime { get; set; }
+        public DateTime? StartedAtTime { get; set; }
 
-        public DateTime FinishedAtTime { get; set; }
+        public DateTime? FinishedAtTime { get; set; }
 
-        public DateTime EnteredAtVetGateTime { get; set; }
+        [DataType(DataType.Time)]
+        public DateTime? EnteredAtVetGateTime { get; set; }
 
         public VetGateStatus VetGateStatus { get; set; }
 
-        public TimeSpan RestTimeSpan { get; set; } 
+        public TimeSpan? RestTimeSpan { get; set; } 
 
         public float AvarageSpeed { get; set; }
 

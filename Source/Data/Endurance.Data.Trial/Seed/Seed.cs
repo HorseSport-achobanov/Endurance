@@ -1,8 +1,8 @@
 ﻿namespace Endurance.Data.Trial.Seed
 {
+    using Microsoft.AspNetCore.Identity;
     using Microsoft.EntityFrameworkCore.Internal;
-    using Models;
-    using Web.Trial.Data.Migrations;
+    using Models.Account;
 
     public static class Seed
     {
@@ -13,6 +13,8 @@
             if (!context.Trials.Any())
             {
                 context.Trials.Add(Data.Trial);
+
+                context.Users.Add(Data.AdminUser);
 
                 context.SaveChanges();
             }
