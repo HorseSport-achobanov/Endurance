@@ -9,15 +9,15 @@
         public static void Initialize(TrialDbContext context)
         {
             context.Database.EnsureCreated();
-
-            if (!context.Trials.Any())
-            {
+//
+//            if (!context.Trials.Any())
+//            {
                 context.Trials.Add(Data.Trial);
 
-                context.Users.Add(Data.AdminUser);
+//                context.Users.Add(Data.AdminUser);
 
                 context.SaveChanges();
-            }
+//            }
         }
     }
 }

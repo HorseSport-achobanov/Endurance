@@ -11,10 +11,6 @@
 
         public int Number { get; set; }
 
-        public virtual BaseRider Rider { get; set; }
-
-        public virtual BaseHorse Horse { get; set; }
-
         public bool PreserveCreatedOn { get; set; }
 
         public DateTime CreatedOn { get; set; }

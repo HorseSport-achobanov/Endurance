@@ -14,6 +14,7 @@
         private static IList<TrialHorse> horses;
         private static IList<TrialRider> riders;
         private static IList<TrialCompetitor> competitors;
+        private static IList<TrialRound> rounds;
         private static IList<IList<TrialRoundPerformance>> performances;
 
         public static Trial Trial {
@@ -22,6 +23,7 @@
                 PopulateClub();
                 PopulateHorses();
                 PopulateRiders();
+                PopulateRounds();
                 PopulatePerformances();
                 PopulateCompetitors();
                 PopulateTrial();
@@ -75,6 +77,7 @@
                 new TrialRider()
                 {
                     Club = club,
+
                     FirstName = "Rumyana",
                     LastName = "Chobanova",
                 },
@@ -101,6 +104,25 @@
             };
         }
 
+        private static void PopulateRounds()
+        {
+            rounds = new List<TrialRound>()
+            {
+                new TrialRound()
+                {
+                    LengthInKilometers = 15,
+                    MaxRestTimeInMinutes = 10,
+                    VetGateEntryInMinutes = 20
+                },
+                new TrialRound()
+                {
+                    LengthInKilometers = 25,
+                    MaxRestTimeInMinutes = 15,
+                    VetGateEntryInMinutes = 30
+                }
+            };
+        }
+
         private static void PopulatePerformances()
         {
             performances = new List<IList<TrialRoundPerformance>>()
@@ -109,25 +131,49 @@
                 {
                     new TrialRoundPerformance()
                     {
+                        LengthInKilometers = 15,
+                        MaxRestTimeInMinutes = 10,
+                        VetGateEntryInMinutes = 20,
                         StartedAtTime = new DateTime(2018, 7, 1, 9, 0, 0)
                     },
                     new TrialRoundPerformance()
+                    {
+                        LengthInKilometers = 15,
+                        MaxRestTimeInMinutes = 10,
+                        VetGateEntryInMinutes = 30
+                    }
                 },
                 new List<TrialRoundPerformance>()
                 {
                     new TrialRoundPerformance()
                     {
+                        LengthInKilometers = 15,
+                        MaxRestTimeInMinutes = 10,
+                        VetGateEntryInMinutes = 20,
                         StartedAtTime = new DateTime(2018, 7, 1, 9, 0, 0)
                     },
                     new TrialRoundPerformance()
+                    {
+                        LengthInKilometers = 15,
+                        VetGateEntryInMinutes = 30,
+                        MaxRestTimeInMinutes = 10,
+                    }
                 },
                 new List<TrialRoundPerformance>()
                 {
                     new TrialRoundPerformance()
                     {
+                        LengthInKilometers = 15,
+                        MaxRestTimeInMinutes = 10,
+                        VetGateEntryInMinutes = 20,
                         StartedAtTime = new DateTime(2018, 7, 1, 9, 0, 0)
                     },
                     new TrialRoundPerformance()
+                    {
+                        LengthInKilometers = 15,
+                        MaxRestTimeInMinutes = 10,
+                        VetGateEntryInMinutes = 30,
+                    }
                 }
             };
         }
@@ -168,19 +214,7 @@
                 Location = "Vakarel",
                 Competitors = competitors,
                 NumberOfRounds = 2,
-                Rounds = new List<TrialRound>()
-                {
-                    new TrialRound()
-                    {
-                        LengthInKilometers = 15,
-                        MaxRestTimeInMinutes = 10
-                    },
-                    new TrialRound()
-                    {
-                        LengthInKilometers = 25,
-                        MaxRestTimeInMinutes = 15
-                    }
-                }
+                Rounds = rounds
             };
         } 
     }

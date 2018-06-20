@@ -89,7 +89,7 @@
             {
                 Exception currentException = ex;
                 while (currentException != null)
-                {
+                { 
                     Trace.TraceError(currentException.Message);
                     currentException = currentException.InnerException;
                 }

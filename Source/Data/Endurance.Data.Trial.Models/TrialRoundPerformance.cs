@@ -14,9 +14,9 @@
 
         public DateTime? EnteredAtVetGateTime { get; set; }
 
-        public VetGateStatus VetGateStatus { get; set; }
+        public VetGateStatus FirstVetGateEntryStatus { get; set; }
 
-        public TimeSpan? RestTimeSpan { get; set; } 
+        public VetGateStatus SecondVetGateEntryStatus { get; set; }
 
         public float AvarageSpeed { get; set; }
 
