@@ -7,9 +7,11 @@
     using global::Services.Common;
     using global::Services.Common.Contracts;
     using Common.Mapping;
+    using Data.Trial;
     using Data.Trial.Contracts;
     using global::Data.Common;
     using global::Data.Common.Contracts;
+    using Microsoft.EntityFrameworkCore;
     using Services.Trial.Account;
     using Services.Trial.Contracts.Account;
     using Services.Trial.Contracts.Performance;
@@ -22,7 +24,7 @@
         public static void AddCustomServices(this IServiceCollection services)
         {
             MapCustomServices(services);
-            MapQueries(services);
+            MapDataControls(services);
         }
 
         public static void AddMapper(this IServiceCollection services)
@@ -40,10 +42,12 @@
             services.AddScoped<ITrialsBusinessService, TrialsBusinessService>();
             services.AddScoped<ITrialsDataService, TrialsDataService>();
             services.AddScoped<IPerformanceDataService, PerformanceDataService>();
+            services.AddScoped<IPerformanceBusinessService, PerformanceBusinessService>();
         }
 
-        private static void MapQueries(IServiceCollection services)
+        private static void MapDataControls(IServiceCollection services)
         {
+            services.AddTransient<DbContext, TrialDbContext>();
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
         }
     }

@@ -5,6 +5,6 @@
 
     public interface IPerformanceBusinessService
     {
-        DateTime Finish(TrialRoundPerformance performance, string finishedAtTime);
+        string Finish(TrialRoundPerformance performance, string finishedAtTime);
     }
 }

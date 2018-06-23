@@ -6,10 +6,11 @@
     using global::Web.Common;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
+    using RequestModels;
     using Services.Trial.Contracts.Performance;
     
     [Authorize]
-    [Route("api/[controller]/{id}/[action]")]
+    [Route("/api/[controller]/[action]")]
     public class PerformancesController : Controller
     {
         private readonly IDataService<TrialRoundPerformance> performacesData;
@@ -24,17 +25,17 @@
         }
 
         [HttpPost]
-        public AjaxResult Finished(int id, string value)
+        public AjaxResult Finished([FromBody] PerformanceFinishedRequestModel request)
         {
-            var performance = this.performacesData.GetById(id);
+            var performance = this.performacesData.GetById(request.Id);
             if (performance == null)
             {
                 return new AjaxResult(false, "No such performance");
             }
 
-            var vetGateEntryDeatlineTime = performancesBusiness.Finish(performance, value);
+            var vetGateEntryDeatlineTimeString = performancesBusiness.Finish(performance, request.FinishedAtString);
 
-            return new AjaxResult(data: vetGateEntryDeatlineTime);
+            return new AjaxResult(data: vetGateEntryDeatlineTimeString);
         }
     }
 }

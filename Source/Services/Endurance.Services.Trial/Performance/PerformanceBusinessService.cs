@@ -15,14 +15,14 @@
             this.performancesData = performancesData;
         }
 
-        public DateTime Finish(TrialRoundPerformance performance, string finishedAtValue)
+        public string Finish(TrialRoundPerformance performance, string finishedAtValue)
         {
             performance.FinishedAtTime = DateTime.Parse(finishedAtValue);
             performance.VetGateEntryDeadlineTime = performance.FinishedAtTime.Value.AddMinutes(performance.VetGateEntryInMinutes);
 
             this.performancesData.Update(performance);
 
-            return performance.VetGateEntryDeadlineTime.Value;
+            return performance.VetGateEntryDeadlineTime.Value.ToString("HH:mm");;
 
 //            var nextPerformance =
 //                this.performancesData.GetNextByIndexAndCompetitorId(perfomance.Index, perfomance.CompetitorId);
