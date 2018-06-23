@@ -8,6 +8,8 @@
 
     public class TrialRoundPerformanceViewModel : IMapFrom<TrialRoundPerformance>
     {
+        public int Id { get; set; }
+
         public DateTime? StartedAtTime { get; set; }
 
         public DateTime? FinishedAtTime { get; set; }
@@ -19,6 +21,8 @@
 
         [UIHint("VetGateStatus")]
         public VetGateStatus SecondVetGateEntryStatus { get; set; }
+
+        public DateTime? VetGateEntryDeadlineTime { get; set; }
 
         public float AvarageSpeed { get; set; }
     }

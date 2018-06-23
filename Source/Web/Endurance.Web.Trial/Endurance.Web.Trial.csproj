@@ -6,7 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="App_Content\Scripts\generateRounds.js" />
+    <None Remove="App_Content\Scripts\api-performance.js" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="App_Content\Styles\site.css" />
     <Content Include="App_Content\Styles\site.min.css" />
   </ItemGroup>
@@ -36,8 +39,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="App_Content\Scripts\" />
     <Folder Include="wwwroot\css\" />
-    <Folder Include="wwwroot\js\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\js\generateRounds.js" />
   </ItemGroup>
 
 </Project>
