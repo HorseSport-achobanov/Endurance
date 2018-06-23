@@ -4,7 +4,6 @@
     {
         NotEntered = 0,
         Passed = 1,
-        Attempted = 2,
-        Disqualified = 3
+        Failed = 2,
     }
 }

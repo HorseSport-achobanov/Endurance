@@ -6,7 +6,13 @@
 
     public class TrialCompetitor : BaseCompetitor
     {
+        public bool Disqualified { get; set; }
+
+        public int RiderId { get; set; }
+
         public TrialRider Rider { get; set; }
+
+        public int HorseId { get; set; }
 
         public TrialHorse Horse { get; set; }
 

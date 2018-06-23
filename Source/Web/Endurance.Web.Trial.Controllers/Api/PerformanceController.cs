@@ -37,5 +37,28 @@
 
             return new AjaxResult(data: vetGateEntryDeatlineTimeString);
         }
+
+        [HttpPost]
+        public AjaxResult VetGateAttempted([FromBody] VetGateAttemptedRequestModel request)
+        {
+            var performance = this.performacesData.GetById(request.Id);
+            if (performance == null)
+            {
+                return new AjaxResult(false, "No such performance");
+            }
+
+            var (disqualified, nextPerformanceStartsAt) = performancesBusiness.VetGateAttempt(performance, request.VetGateStatus);
+
+            if (disqualified)
+            {
+                return new AjaxResult(message: "Disqualified", data: new
+                {
+                    disqualified = true
+                });
+            }
+
+            return new AjaxResult(data: nextPerformanceStartsAt);
+        }
+
     }
 }
