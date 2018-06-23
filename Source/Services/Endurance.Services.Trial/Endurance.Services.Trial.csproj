@@ -12,6 +12,7 @@
     <ProjectReference Include="..\..\Common\Common.csproj" />
     <ProjectReference Include="..\..\Data\Endurance.Data.Trial.Queries\Endurance.Data.Trial.Repositories.csproj" />
     <ProjectReference Include="..\Endurance.Services.Trial.Contracts\Endurance.Services.Trial.Contracts.csproj" />
+    <ProjectReference Include="..\Services.Common\Services.Common.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,9 +1,10 @@
 ﻿namespace Endurance.Services.Trial.Contracts.Performance
 {
     using Data.Trial.Models;
+    using global::Services.Common.Contracts;
 
-    public interface IPerformanceDataService
+    public interface IPerformanceDataService : IDataService<TrialRoundPerformance>
     {
-        TrialRoundPerformance GetById(int id);
+        TrialRoundPerformance GetNextByIndexAndCompetitorId(int index, int competitorId);
     }
 }

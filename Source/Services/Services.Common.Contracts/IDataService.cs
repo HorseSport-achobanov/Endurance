@@ -1,10 +1,9 @@
-﻿namespace Data.Common.Contracts
+﻿namespace Services.Common.Contracts
 {
     using System.Collections.Generic;
     using System.Linq;
 
-    public interface IRepository<T>
-        where T : class
+    public interface IDataService<T>
     {
         IEnumerable<T> GetAll();
 
@@ -19,7 +18,5 @@
         T Remove(object id);
 
         T Remove(T entity);
-
-        void SaveChanges();
     }
 }

@@ -4,6 +4,7 @@
     using System.Linq;
     using Contracts;
     using Microsoft.EntityFrameworkCore;
+    using Microsoft.EntityFrameworkCore.ChangeTracking;
 
     public class Repository<T> : IRepository<T>
         where T : class
@@ -24,6 +25,19 @@
         public T GetById(object id) => this.dbSet.Find(id);
 
         public T Add(T entity) => this.dbSet.Add(entity).Entity;
+        
+        public T Update(T entity)
+        {
+            EntityEntry<T> entry = this.context.Entry(entity);
+            if (entry.State == EntityState.Detached)
+            {
+                this.dbSet.Attach(entity);
+            }
+
+            entry.State = EntityState.Modified;
+
+            return entry.Entity;
+        }
 
         public T Remove(object id)
         {

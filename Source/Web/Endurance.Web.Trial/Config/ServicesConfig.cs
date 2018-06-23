@@ -33,6 +33,7 @@
 
         private static void MapCustomServices(IServiceCollection services)
         {
+            services.AddScoped(typeof(IDataService<>), typeof(DataService<>));
             services.AddScoped<IUsersBusinessService, UsersBusinessService>();
             services.AddScoped<IUsersDataService, UsersDataService>();
             services.AddScoped<IAutomapperService, AutomapperService>();
