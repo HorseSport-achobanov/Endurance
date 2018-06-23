@@ -1,18 +1,16 @@
 ﻿namespace Endurance.Data.Trial.Models
 {
     using System;
-    using System.ComponentModel.DataAnnotations;
 
-    using global::Data.Common.Contracts;
     using Resources.Endurance.Enums;
 
-    public class TrialRoundPerformance : TrialRound, IAuditInfo
+    public class TrialRoundPerformance : TrialRound
     {
         public DateTime? StartedAtTime { get; set; }
 
         public DateTime? FinishedAtTime { get; set; }
 
-        public DateTime? EnteredAtVetGateTime { get; set; }
+        public DateTime? VetGateEntryDeadlineTime { get; set; }
 
         public VetGateStatus FirstVetGateEntryStatus { get; set; }
 
@@ -20,10 +18,8 @@
 
         public float AvarageSpeed { get; set; }
 
-        public bool PreserveCreatedOn { get; set; }
+        public int CompetitorId { get; set; }
 
-        public DateTime CreatedOn { get; set; }
-
-        public DateTime? ModifiedOn { get; set; }
+        public TrialCompetitor Competitor { get; set; }
     }
 }

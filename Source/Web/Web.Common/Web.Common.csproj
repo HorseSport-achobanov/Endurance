@@ -5,12 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Infrastructure\" />
+    <Compile Remove="Infrastructure\**" />
+    <EmbeddedResource Remove="Infrastructure\**" />
+    <None Remove="Infrastructure\**" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\Common\Common.csproj" />
-    <ProjectReference Include="..\Endurance.Web.Trial.Controllers\Endurance.Web.Trial.Controllers.csproj" />
   </ItemGroup>
 
   <ItemGroup>
