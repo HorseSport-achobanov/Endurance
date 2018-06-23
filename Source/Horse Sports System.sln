@@ -13,7 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{CBE49858
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Endurance.Data.Trial", "Data\Endurance.Data.Trial\Endurance.Data.Trial.csproj", "{44B27815-C15F-4491-99A8-F59539BEA882}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Endurance.Data.Trial.Queries", "Data\Endurance.Data.Trial.Queries\Endurance.Data.Trial.Queries.csproj", "{DF2F7503-B4DF-4A9D-ACF3-0525A9DF7926}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Endurance.Data.Trial.Repositories", "Data\Endurance.Data.Trial.Queries\Endurance.Data.Trial.Repositories.csproj", "{DF2F7503-B4DF-4A9D-ACF3-0525A9DF7926}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Endurance.Data.Trial.Contracts", "Data\Endurance.Data.Trial.Contracts\Endurance.Data.Trial.Contracts.csproj", "{FEA36367-2CBF-4035-B397-E39731FE6513}"
 EndProject
@@ -41,7 +41,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data.Common.Contracts", "Da
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data.Common", "Data\Data.Common\Data.Common.csproj", "{E5312952-0D7B-4970-A53A-3A856E7E9704}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Resources", "Resources\Resources.csproj", "{B020E295-CB4E-4599-BF1F-C0C1F606E025}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Resources", "Resources\Resources.csproj", "{B020E295-CB4E-4599-BF1F-C0C1F606E025}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
