@@ -6,7 +6,7 @@
     using Microsoft.EntityFrameworkCore;
 
     public class Repository<T> : IRepository<T>
-        where T : class, IIdentifiable<object>
+        where T : class
     {
         private readonly DbContext context;
         private readonly DbSet<T> dbSet;
@@ -22,8 +22,6 @@
         public IQueryable<T> GetQueryableAll() => this.dbSet;
 
         public T GetById(object id) => this.dbSet.Find(id);
-
-        public IQueryable<T> GetQueriableById(object id) => this.dbSet.Where(x => x.Id == id);
 
         public T Add(T entity) => this.dbSet.Add(entity).Entity;
 

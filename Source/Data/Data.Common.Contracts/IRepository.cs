@@ -12,8 +12,6 @@
 
         T GetById(object id);
 
-        IQueryable<T> GetQueriableById(object id);
-
         T Add(T entity);
 
         T Remove(object id);

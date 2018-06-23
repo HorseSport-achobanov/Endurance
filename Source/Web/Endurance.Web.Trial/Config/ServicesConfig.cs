@@ -8,7 +8,8 @@
     using global::Services.Common.Contracts;
     using Common.Mapping;
     using Data.Trial.Contracts;
-    using Data.Trial.Repositories.Trial;
+    using global::Data.Common;
+    using global::Data.Common.Contracts;
     using Services.Trial.Account;
     using Services.Trial.Contracts.Account;
     using Services.Trial.Contracts.Performance;
@@ -42,7 +43,7 @@
 
         private static void MapQueries(IServiceCollection services)
         {
-            services.AddScoped<ITrialsRepository, TrialsRepository>();
+            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
         }
     }
 }
