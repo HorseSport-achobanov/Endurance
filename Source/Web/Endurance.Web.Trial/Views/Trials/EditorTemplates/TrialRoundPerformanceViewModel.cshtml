@@ -1,0 +1,23 @@
+﻿@using Resources.Endurance.Enums
+@model Endurance.Data.Trial.Models.TrialRoundPerformance
+
+<section class="performance-container" data-performance-id=@Model.Id>
+
+    @Html.HiddenFor(m => m.Id)
+
+    @Html.EditorFor(m => m.StartedAtTime)
+    
+    <div class="form-group">
+        <label asp-for="@Model.FinishedAtTime" class="control-label"></label>
+        <input asp-for="@Model.FinishedAtTime" data-api-endpoint="/finished" type="time" class="form-control" />
+        <span asp-validation-for="@Model.FinishedAtTime" class="text-danger"></span>
+    </div>
+    
+    @Html.EditorFor(m => m.EnteredAtVetGateTime)
+    
+    @Html.EditorFor(m => m.FirstVetGateEntryStatus)
+    
+    @Html.EditorFor(m => m.SecondVetGateEntryStatus, new { Hidden = true })
+
+</section>
+

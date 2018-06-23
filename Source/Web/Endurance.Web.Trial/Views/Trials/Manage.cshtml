@@ -24,3 +24,28 @@
 <section id="competitors-container">
     @Html.EditorFor(m => m.Competitors)
 </section>
+
+@section Scripts {
+    <script>
+        var UPDATE_API = '/api/update/';
+
+        $(function() {
+            $('input').on('keypress', function(e) {
+                console.log('Keypress');
+                if (e.which === 13) {
+                    console.log('enter');
+
+                    var $input = $(this);
+                    var endpoint = $input.attr('data-api-endpoint');
+                    var performanceId = $input.parent().attr('data-performance-id');
+                    var value = $input.val();
+
+                    var requestUrl = UPDATE_API + performanceId + endpoint;
+                    $.post(requestUrl, JSON.stringify(value))
+                        .then(res => console.log(res))
+                        .catch(err => console.log(err));
+                }
+            });
+        })
+    </script>
+}
