@@ -14,9 +14,9 @@
 
         public int Number { get; set; }
 
-        public BaseRider Rider { get; set; }
+        public TrialRider Rider { get; set; }
 
-        public BaseHorse Horse { get; set; }
+        public TrialHorse Horse { get; set; }
 
         public IList<TrialRoundPerformance> Performances { get; set; }
 
