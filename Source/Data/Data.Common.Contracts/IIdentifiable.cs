@@ -1,7 +1,7 @@
 ﻿namespace Data.Common.Contracts
 {
-    public interface IIdentifiable<TKey>
+    public interface IIdentifiable<T>
     {
-        TKey Id { get; set; }
+        T Id { get; set; }
     }
 }

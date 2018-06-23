@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using global::Data.Common;
+    using global::Data.Common.Models;
     using Microsoft.AspNetCore.Identity;
     using Models;
     using Models.Account;

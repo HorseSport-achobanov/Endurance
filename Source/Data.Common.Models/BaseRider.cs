@@ -3,13 +3,18 @@
     using System;
     using System.ComponentModel.DataAnnotations.Schema;
     using Contracts;
+    using Models;
 
-    [Table("Clubs")]
-    public class BaseClub : IIdentifiable<int>, IAuditInfo
+    [Table("Riders")]
+    public class BaseRider : IIdentifiable<int>, IAuditInfo
     {
         public int Id { get; set; }
 
-        public string Name { get; set; }
+        public string FirstName { get; set; }
+
+        public string LastName { get; set;  }
+
+        public BaseClub Club { get; set; }
 
         public bool PreserveCreatedOn { get; set; }
 
