@@ -1,10 +1,10 @@
-﻿namespace Endurance.Data.Trial.Contracts.Trial
+﻿namespace Endurance.Data.Trial.Contracts
 {
     using System.Linq;
     using Microsoft.EntityFrameworkCore.ChangeTracking;
     using Models;
 
-    public interface IQueryTrials
+    public interface ITrialsRepository
     {
         IQueryable<Trial> GetQueryableById(int id);
 

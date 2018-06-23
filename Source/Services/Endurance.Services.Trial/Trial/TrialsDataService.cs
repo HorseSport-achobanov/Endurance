@@ -3,15 +3,15 @@
     using System.Collections.Generic;
     using System.Linq;
     using Contracts.Trial;
-    using Data.Trial.Contracts.Trial;
+    using Data.Trial.Contracts;
     using Endurance.Data.Trial.Models;
     using Microsoft.EntityFrameworkCore;
 
     public class TrialsDataService : ITrialsDataService
     {
-        private readonly IQueryTrials query;
+        private readonly ITrialsRepository query;
 
-        public TrialsDataService(IQueryTrials query)
+        public TrialsDataService(ITrialsRepository query)
         {
             this.query = query;
         }

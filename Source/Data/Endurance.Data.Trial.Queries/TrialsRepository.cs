@@ -1,15 +1,15 @@
-﻿namespace Endurance.Data.Trial.Queries.Trial
+﻿namespace Endurance.Data.Trial.Repositories.Trial
 {
     using System.Linq;
-    using Contracts.Trial;
+    using Contracts;
     using Microsoft.EntityFrameworkCore.ChangeTracking;
     using Models;
 
-    public class QueryTrials : IQueryTrials
+    public class TrialsRepository : ITrialsRepository
     {
         private readonly TrialDbContext dbContext;
 
-        public QueryTrials(TrialDbContext dbContext)
+        public TrialsRepository(TrialDbContext dbContext)
         {
             this.dbContext = dbContext;
         }
