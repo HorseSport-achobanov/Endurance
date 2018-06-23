@@ -9,7 +9,7 @@
     {
         public TrialCompetitorViewModel()
         {
-            TotalAvarageSpeedForEachRound = new List<float>();
+            CurrentAvarageSpeedAtRounds = new List<float>();
         }
 
         public int Number { get; set; }
@@ -18,8 +18,8 @@
 
         public TrialHorse Horse { get; set; }
 
-        public IList<TrialRoundPerformance> Performances { get; set; }
+        public IList<TrialRoundPerformanceViewModel> Performances { get; set; }
 
-        public IList<float> TotalAvarageSpeedForEachRound { get; set; }
+        public IList<float> CurrentAvarageSpeedAtRounds { get; set; }
     }
 }

@@ -1,11 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace Endurance.Web.Trial.Views.Trials.EditorTemplates
-{
-    public class VetGateStatus
-    {
-    }
+﻿@model Resources.Endurance.Enums.VetGateStatus
+@{
+    var isHidden = ViewData["Hidden"] != null ? "hidden" : null;
 }
+
+<div class="form-group @isHidden">
+    <label asp-for="@Model" class="control-label"></label>
+    <select asp-for="@Model"
+            asp-items="@Html.GetEnumSelectList(Model.GetType())"
+            data-api-endpoint="/vetgatestatus"
+            class="form-control"></select>
+    <span asp-validation-for="@Model" class="text-danger"></span>
+</div>

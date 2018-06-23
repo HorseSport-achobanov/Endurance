@@ -4,12 +4,16 @@
     using Microsoft.AspNetCore.Mvc;
 
     
-    [Route("api/[controller]/[action]")]
-    public class CompetitorsController : Controller
+    [Route("api/[controller]/{id}/[action]")]
+    public class PerformancesController : Controller
     {
+        public PerformancesController()
+        {
+            
+        }
 
         [HttpPost]
-        public IActionResult Update(TrialRoundPerformance performance)
+        public IActionResult Finished(int id)
         {
             return new JsonResult(true);
         }

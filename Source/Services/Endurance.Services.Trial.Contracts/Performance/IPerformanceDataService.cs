@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Endurance.Services.Trial.Contracts.Performance
+﻿namespace Endurance.Services.Trial.Contracts.Performance
 {
-    interface IPerformanceDataService
+    using Data.Trial.Models;
+
+    public interface IPerformanceDataService
     {
+        TrialRoundPerformance GetById(int id);
     }
 }

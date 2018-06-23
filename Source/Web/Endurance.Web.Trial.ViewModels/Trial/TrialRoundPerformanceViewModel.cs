@@ -1,10 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Endurance.Web.Trial.ViewModels.Trial
+﻿namespace Endurance.Web.Trial.ViewModels.Trial
 {
-    class TrialRoundPerformanceViewModel
+    using System;
+    using System.ComponentModel.DataAnnotations;
+    using Common.Mapping;
+    using Data.Trial.Models;
+    using Resources.Endurance.Enums;
+
+    public class TrialRoundPerformanceViewModel : IMapFrom<TrialRoundPerformance>
     {
+        public DateTime? StartedAtTime { get; set; }
+
+        public DateTime? FinishedAtTime { get; set; }
+
+        public DateTime? EnteredAtVetGateTime { get; set; }
+
+        [UIHint("VetGateStatus")]
+        public VetGateStatus FirstVetGateEntryStatus { get; set; }
+
+        [UIHint("VetGateStatus")]
+        public VetGateStatus SecondVetGateEntryStatus { get; set; }
+
+        public float AvarageSpeed { get; set; }
     }
 }

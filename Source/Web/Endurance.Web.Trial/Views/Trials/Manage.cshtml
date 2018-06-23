@@ -27,12 +27,13 @@
 
 @section Scripts {
     <script>
-        var UPDATE_API = '/api/update/';
+        var UPDATE_API = '/api/performance/';
 
         $(function() {
             $('input').on('keypress', function(e) {
                 console.log('Keypress');
                 if (e.which === 13) {
+                    e.preventDefault();
                     console.log('enter');
 
                     var $input = $(this);

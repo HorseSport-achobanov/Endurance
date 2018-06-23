@@ -11,7 +11,9 @@
     using Endurance.Data.Trial.Queries.Trial;
     using Services.Trial.Account;
     using Services.Trial.Contracts.Account;
+    using Services.Trial.Contracts.Performance;
     using Services.Trial.Contracts.Trial;
+    using Services.Trial.Performance;
     using Services.Trial.Trial;
 
     public static class ServicesConfig
@@ -35,6 +37,7 @@
             services.AddScoped<IAutomapperService, AutomapperService>();
             services.AddScoped<ITrialsBusinessService, TrialsBusinessService>();
             services.AddScoped<ITrialsDataService, TrialsDataService>();
+            services.AddScoped<IPerformanceDataService, PerformanceDataService>();
         }
 
         private static void MapQueries(IServiceCollection services)
