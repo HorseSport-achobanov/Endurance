@@ -113,13 +113,15 @@
                 {
                     LengthInKilometers = 15,
                     MaxRestTimeInMinutes = 10,
-                    VetGateEntryInMinutes = 20
+                    VetGateEntryInMinutes = 20,
+                    Index = 0,
                 },
                 new TrialRound()
                 {
                     LengthInKilometers = 25,
                     MaxRestTimeInMinutes = 15,
-                    VetGateEntryInMinutes = 30
+                    VetGateEntryInMinutes = 30,
+                    Index = 1
                 }
             };
         }
@@ -135,13 +137,15 @@
                         LengthInKilometers = 15,
                         MaxRestTimeInMinutes = 10,
                         VetGateEntryInMinutes = 20,
+                        Index = 0,
                         StartedAtTime = new DateTime(2018, 7, 1, 9, 0, 0)
                     },
                     new TrialRoundPerformance()
                     {
                         LengthInKilometers = 15,
                         MaxRestTimeInMinutes = 10,
-                        VetGateEntryInMinutes = 30
+                        VetGateEntryInMinutes = 30,
+                        Index = 1,
                     }
                 },
                 new List<TrialRoundPerformance>()
@@ -151,12 +155,14 @@
                         LengthInKilometers = 15,
                         MaxRestTimeInMinutes = 10,
                         VetGateEntryInMinutes = 20,
+                        Index = 0,
                         StartedAtTime = new DateTime(2018, 7, 1, 9, 0, 0)
                     },
                     new TrialRoundPerformance()
                     {
                         LengthInKilometers = 15,
                         VetGateEntryInMinutes = 30,
+                        Index = 1,
                         MaxRestTimeInMinutes = 10,
                     }
                 },
@@ -167,12 +173,14 @@
                         LengthInKilometers = 15,
                         MaxRestTimeInMinutes = 10,
                         VetGateEntryInMinutes = 20,
+                        Index = 0,
                         StartedAtTime = new DateTime(2018, 7, 1, 9, 0, 0)
                     },
                     new TrialRoundPerformance()
                     {
                         LengthInKilometers = 15,
                         MaxRestTimeInMinutes = 10,
+                        Index = 1,
                         VetGateEntryInMinutes = 30,
                     }
                 }
