@@ -5,15 +5,6 @@
     <UserSecretsId>aspnet-Endurance.Web.Trial-247988AA-5A6E-4187-99D0-C6D769513314</UserSecretsId>
   </PropertyGroup>
 
-  <ItemGroup>
-    <None Remove="App_Content\Scripts\api-performance.js" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="App_Content\Styles\site.css" />
-    <Content Include="App_Content\Styles\site.min.css" />
-  </ItemGroup>
-
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.1.0" />
@@ -36,10 +27,10 @@
     <ProjectReference Include="..\..\Services\Services.Common\Services.Common.csproj" />
     <ProjectReference Include="..\Endurance.Web.Trial.Controllers\Endurance.Web.Trial.Controllers.csproj" />
     <ProjectReference Include="..\Endurance.Web.Trial.ViewModels\Endurance.Web.Trial.ViewModels.csproj" />
+    <ProjectReference Include="..\Web.Common\Web.Common.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="App_Content\Scripts\" />
     <Folder Include="wwwroot\css\" />
   </ItemGroup>
 
