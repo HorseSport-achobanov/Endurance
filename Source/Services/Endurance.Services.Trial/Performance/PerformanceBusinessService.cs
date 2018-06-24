@@ -51,7 +51,7 @@
                 if (vetGateStatus == VetGateStatus.Failed)
                 {
                     this.performancesData.Update(performance);
-                    return (disqualified: false, passed: true, string.Empty);
+                    return (disqualified: false, passed: false, string.Empty);
                 }
             }
             else
