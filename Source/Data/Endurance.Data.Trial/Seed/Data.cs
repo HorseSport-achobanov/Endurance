@@ -222,6 +222,7 @@
             {
                 Name = "Nacionalno",
                 Location = "Vakarel",
+                Date = DateTime.Now.Date,
                 Competitors = competitors,
                 NumberOfRounds = 2,
                 Rounds = rounds
