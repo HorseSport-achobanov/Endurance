@@ -18,7 +18,7 @@
 
         public DateTime? VetGateEntryTime { get; set; }
 
-        public float AvarageSpeed { get; set; }
+        public double? AvarageSpeed { get; set; }
 
         public int CompetitorId { get; set; }
 

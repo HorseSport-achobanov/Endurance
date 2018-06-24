@@ -4,14 +4,14 @@
     using System.Collections.Generic;
     using System.Linq;
 
-    public static class LINQExtensions
+    public static class EnumerableExtensions
     {
-        public static IEnumerable<float> TotalAvarageSpeedAtEachPerformance(this IEnumerable<float> enumerable)
+        public static IEnumerable<double?> TotalAvarageSpeedAtEachPerformance(this IEnumerable<double?> enumerable)
         {
-            var currentValuesAtEachElement = new List<List<float>>();
+            var currentValuesAtEachElement = new List<List<double?>>();
             using (var enumerator = enumerable.GetEnumerator())
             {
-                var previousElems = new List<float>();
+                var previousElems = new List<double?>();
                 while (enumerator.MoveNext())
                 {
                     previousElems.Add(enumerator.Current);

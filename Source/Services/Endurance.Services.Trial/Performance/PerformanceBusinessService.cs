@@ -19,6 +19,7 @@
         public string Finish(TrialRoundPerformance performance, string finishedAtValue)
         {
             performance.FinishedAtTime = DateTime.Parse(finishedAtValue);
+            performance.AvarageSpeed = CalculateAvarageSpeed(performance);
             performance.VetGateEntryDeadlineTime = performance.FinishedAtTime.Value.AddMinutes(performance.VetGateEntryInMinutes);
 
             this.performancesData.Update(performance);
@@ -64,6 +65,18 @@
                 performance.MaxRestTimeInMinutes);
 
             return (disqualified: false, passed: true, nextPerformanceStartAtTime?.ToString("HH:mm"));
+        }
+
+        private double CalculateAvarageSpeed(TrialRoundPerformance performance)
+        {
+            var startTime = performance.StartedAtTime.GetValueOrDefault();
+            var finishTime = performance.FinishedAtTime.GetValueOrDefault();
+            var lenght = performance.LengthInKilometers;
+
+            var timeSpan = finishTime - startTime;
+            var hours = timeSpan.TotalHours;
+
+            return lenght / hours;
         }
 
         private DateTime? SetNextPerformanceStartTime(int index, int competitorId, double restMinutes)

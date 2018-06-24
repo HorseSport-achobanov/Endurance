@@ -44,7 +44,10 @@
                 .ForMember(
                     m => m.CurrentAvarageSpeedAtRounds,
                     opt => opt.MapFrom(e =>
-                        e.Performances.Select(p => p.AvarageSpeed).TotalAvarageSpeedAtEachPerformance()));
+                        e.Performances
+                            .Select(p => p.AvarageSpeed)
+                            .Where(a => a.HasValue)
+                            .TotalAvarageSpeedAtEachPerformance()));
         }
     }
 }

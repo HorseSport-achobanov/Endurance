@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Data;
     using global::Data.Common;
     using global::Data.Common.Models;
     using Microsoft.AspNetCore.Identity;
@@ -138,7 +139,7 @@
                         MaxRestTimeInMinutes = 10,
                         VetGateEntryInMinutes = 20,
                         Index = 0,
-                        StartedAtTime = new DateTime(2018, 7, 1, 9, 0, 0)
+                        StartedAtTime = DateTime.Parse("09:00")
                     },
                     new TrialRoundPerformance()
                     {
@@ -156,7 +157,7 @@
                         MaxRestTimeInMinutes = 10,
                         VetGateEntryInMinutes = 20,
                         Index = 0,
-                        StartedAtTime = new DateTime(2018, 7, 1, 9, 0, 0)
+                        StartedAtTime = DateTime.Parse("09:00")
                     },
                     new TrialRoundPerformance()
                     {
@@ -174,7 +175,7 @@
                         MaxRestTimeInMinutes = 10,
                         VetGateEntryInMinutes = 20,
                         Index = 0,
-                        StartedAtTime = new DateTime(2018, 7, 1, 9, 0, 0)
+                        StartedAtTime = DateTime.Parse("09:00")
                     },
                     new TrialRoundPerformance()
                     {
