@@ -6,17 +6,17 @@
 }
 
 <div class="row competitor-container @isDisqualifiedClass">
-    <section class="col-md-2 head">
-        <p>Number: @Model.Number</p>
-        <p>Rider: @riderName</p>
-        <p>Horse: @Model.Horse.Name</p>
+    <section class="col-md-3 head">
+        <p>Number: <strong>@Model.Number</strong></p>
+        <p>Rider: <strong>@riderName</strong></p>
+        <p>Horse: <strong>@Model.Horse.Name</strong></p>
     </section>
-
-    <section class="col-md-6 rounds">
+    s
+    <section class="col-md-7 rounds row">
         @Html.EditorFor(m => m.Performances)
     </section>
 
-    <section class="col-md-4 stats">
+    <section class="col-md-2 stats">
         @Html.DisplayFor(m => m.CurrentAvarageSpeedAtRounds)
     </section>
 </div>

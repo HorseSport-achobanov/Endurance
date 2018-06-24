@@ -6,17 +6,19 @@
 
 <header>
     <div class="row">
-        <div class="col-md-4">
-            <h1>@Model.Name</h1>
-        </div>
+        <div class="container trial-info-container">
+            <div class="col-md-4">
+                <h1>@Model.Name</h1>
+            </div>
 
-        <div class="col-md-4">
-            <p>@Model.Location</p>
-            <p>@Model.Date</p>
-        </div>
+            <div class="col-md-4">
+                <h4>Location: <strong>@Model.Location</strong></h4>
+                <h4>Date: <strong>@Model.Date</strong></h4>
+            </div>
 
-        <div class="col-md-4">
-            <p>Rouds: <strong>@Model.NumberOfRounds</strong></p>
+            <div class="col-md-4">
+                <h4>Rouds: <strong>@Model.NumberOfRounds</strong></h4>
+            </div>
         </div>
     </div>
 </header>
