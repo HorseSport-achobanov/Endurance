@@ -16,15 +16,21 @@
             this.performancesData = performancesData;
         }
 
-        public string Finish(TrialRoundPerformance performance, string finishedAtValue)
+        public (string vetGateEntryDeadline, double avarageSpeed) Finish(
+            TrialRoundPerformance performance, 
+            string finishedAtValue)
         {
             performance.FinishedAtTime = DateTime.Parse(finishedAtValue);
-            performance.AvarageSpeed = CalculateAvarageSpeed(performance);
-            performance.VetGateEntryDeadlineTime = performance.FinishedAtTime.Value.AddMinutes(performance.VetGateEntryInMinutes);
+
+            var avarageSpeed = CalculateAvarageSpeed(performance);
+            var vetGateEntryDeadline = performance.FinishedAtTime.Value.AddMinutes(performance.VetGateEntryInMinutes);
+
+            performance.AvarageSpeed = avarageSpeed;
+            performance.VetGateEntryDeadlineTime = vetGateEntryDeadline;
 
             this.performancesData.Update(performance);
 
-            return performance.VetGateEntryDeadlineTime.Value.ToString("HH:mm");;
+            return (vetGateEntryDeadline.ToString("HH:mm"), Math.Round(avarageSpeed, 2));
         }
 
         public (bool disqualified, bool passed, string) VetGateAttempt(

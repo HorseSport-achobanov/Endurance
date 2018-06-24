@@ -1,15 +1,18 @@
 ﻿@model IList<float>
 
 <p>Avarage speed</p>
+<div class="container">
 @for (var i = 0; i < Model.Count; i++)
 {
     var firstRound = i == 0;
-    <div class="container">
+
+    <p>
         <span>
-            @(firstRound 
-                ? "Round 1: "
-                : $"Rounds 1-{i + 1}")
+            @(firstRound
+                          ? "Round 1: "
+                          : $"Rounds 1-{i + 1}")
         </span>
-        <span>@Model[i] km/h</span>
-    </div>
+        <strong>@Model[i] km/h</strong>
+    </p>
 }
+</div>

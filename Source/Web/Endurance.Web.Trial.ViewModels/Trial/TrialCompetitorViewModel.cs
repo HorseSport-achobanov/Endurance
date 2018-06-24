@@ -39,8 +39,8 @@
                     opt => opt.MapFrom(e => e.Performances.Any(p =>
                         p.SecondVetGateEntryStatus == VetGateStatus.Failed
                         || p.VetGateEntryTime.HasValue
-                        && p.FinishedAtTime.HasValue
-                        && p.VetGateEntryTime.Value > p.FinishedAtTime.Value.AddMinutes(p.VetGateEntryInMinutes))))
+                            && p.FinishedAtTime.HasValue
+                            && p.VetGateEntryTime.Value > p.FinishedAtTime.Value.AddMinutes(p.VetGateEntryInMinutes))))
                 .ForMember(
                     m => m.CurrentAvarageSpeedAtRounds,
                     opt => opt.MapFrom(e =>

@@ -34,9 +34,10 @@
                 return new AjaxResult(false, "No such performance");
             }
 
-            var vetGateEntryDeatlineTimeString = performancesBusiness.Finish(performance, request.FinishedAtString);
+            var (vetGateEntryDeatlineTimeString, averageSpeed) = 
+                performancesBusiness.Finish(performance, request.FinishedAtString);
 
-            return new AjaxResult(data: vetGateEntryDeatlineTimeString);
+            return new AjaxResult(data: new { vetGateEntryDeatlineTimeString, averageSpeed });
         }
 
         [HttpPost]

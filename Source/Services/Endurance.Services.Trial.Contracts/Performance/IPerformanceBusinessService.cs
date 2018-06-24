@@ -6,7 +6,9 @@
 
     public interface IPerformanceBusinessService
     {
-        string Finish(TrialRoundPerformance performance, string finishedAtTime);
+        (string vetGateEntryDeadline, double avarageSpeed) Finish(
+            TrialRoundPerformance performance, 
+            string finishedAtTime);
 
         (bool disqualified, bool passed, string) VetGateAttempt(
             TrialRoundPerformance performance, 
