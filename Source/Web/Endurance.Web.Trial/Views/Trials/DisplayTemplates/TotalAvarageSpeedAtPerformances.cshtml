@@ -12,7 +12,7 @@
                           ? "Round 1: "
                           : $"Rounds 1-{i + 1}")
         </span>
-        <strong>@Model[i] km/h</strong>
+        <strong>@Math.Round(Model[i], 2) km/h</strong>
     </p>
 }
 </div>

@@ -18,6 +18,7 @@
         public Trial GetById(int id) =>
             this.trialsData.GetQueryableAll()
                 .Where(t => t.Id == id)
+                .Include(t => t.Rounds)
                 .Include(t => t.Competitors).ThenInclude(c => c.Rider).ThenInclude(r => r.Club)
                 .Include(t => t.Competitors).ThenInclude(c => c.Horse)
                 .Include(t => t.Competitors).ThenInclude(c => c.Performances)

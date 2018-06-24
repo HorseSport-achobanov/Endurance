@@ -12,12 +12,23 @@
             </div>
 
             <div class="col-md-4">
-                <h4>Location: <strong>@Model.Location</strong></h4>
-                <h4>Date: <strong>@Model.Date</strong></h4>
+                <h4>Rouds: <strong>@Model.Rounds.Count</strong></h4>
+                <div>
+                    @foreach (var round in Model.Rounds)
+                    {
+                        <p>
+                            <strong>@(round.Index).</strong>
+                            <span>Length: <strong>@round.LengthInKilometers km</strong></span>
+                            <span>VetGate: <strong>@round.VetGateEntryInMinutes min</strong></span>
+                            <span>Rest: <strong>@round.MaxRestTimeInMinutes min</strong></span>
+                        </p>
+                    }
+                </div>
             </div>
 
             <div class="col-md-4">
-                <h4>Rouds: <strong>@Model.NumberOfRounds</strong></h4>
+                <h4>Location: <strong>@Model.Location</strong></h4>
+                <h4>Date: <strong>@Model.Date.ToString("dd-MMM-yy")</strong></h4>
             </div>
         </div>
     </div>
@@ -28,6 +39,5 @@
 </section>
 
 @section Scripts {
-    <script src="/js/api-performance.js">
-    </script>
+    <script src="/js/api-performance.js"></script>
 }
