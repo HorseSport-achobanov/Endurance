@@ -6,7 +6,5 @@
     public interface IPerformanceDataService : IDataService<TrialRoundPerformance>
     {
         TrialRoundPerformance GetNextByIndexAndCompetitorId(int index, int competitorId);
-        
-        TrialRoundPerformance GetByIdWithCompetitor(int performanceId);
     }
 }

@@ -24,16 +24,19 @@
             this.performancesData.Update(performance);
 
             return performance.VetGateEntryDeadlineTime.Value.ToString("HH:mm");;
-
-//            var nextPerformance =
-//                this.performancesData.GetNextByIndexAndCompetitorId(perfomance.Index, perfomance.CompetitorId);
-//
-//            nextPerformance.StartedAtTime =
-//                perfomance.FinishedAtTime.Value.AddMinutes(perfomance.VetGateEntryInMinutes);
         }
 
-        public (bool, string) VetGateAttempt(TrialRoundPerformance performance, VetGateStatus vetGateStatus)
+        public (bool disqualified, bool passed, string) VetGateAttempt(
+            TrialRoundPerformance performance, 
+            VetGateStatus vetGateStatus)
         {
+            performance.VetGateEntryTime = DateTime.Now;
+            if (performance.VetGateEntryTime > performance.VetGateEntryDeadlineTime)
+            {
+                this.performancesData.Update(performance);
+                return (disqualified: true, passed: false, "Exceeded VetGate entry time");
+            }
+
             if (performance.FirstVetGateEntryStatus == VetGateStatus.NotEntered)
             {
                 performance.FirstVetGateEntryStatus = vetGateStatus;
@@ -41,7 +44,7 @@
                 if (vetGateStatus == VetGateStatus.Failed)
                 {
                     this.performancesData.Update(performance);
-                    return (false, string.Empty);
+                    return (disqualified: false, passed: true, string.Empty);
                 }
             }
             else
@@ -50,8 +53,8 @@
                 
                 if (vetGateStatus == VetGateStatus.Failed)
                 {
-                    DisqualifyCompetitor(performance.Id);
-                    return (true, string.Empty);
+                    this.performancesData.Update(performance);
+                    return (disqualified: true, passed: false, string.Empty);
                 }
             }
 
@@ -60,22 +63,18 @@
                 performance.CompetitorId, 
                 performance.MaxRestTimeInMinutes);
 
-            return (false, nextPerformanceStartAtTime.ToString("HH:mm"));
+            return (disqualified: false, passed: true, nextPerformanceStartAtTime?.ToString("HH:mm"));
         }
 
-
-        private void DisqualifyCompetitor(int id)
-        {
-            var performance = this.performancesData.GetByIdWithCompetitor(id);
-            performance.Competitor.Disqualified = true;
-            
-            this.performancesData.Update(performance);
-        }
-
-        private DateTime SetNextPerformanceStartTime(int index, int competitorId, double restMinutes)
+        private DateTime? SetNextPerformanceStartTime(int index, int competitorId, double restMinutes)
         {
             var nextPerformance =
                 this.performancesData.GetNextByIndexAndCompetitorId(index, competitorId);
+            if (nextPerformance == null)
+            {
+                return null;
+            }
+
             nextPerformance.StartedAtTime = DateTime.Now.AddMinutes(restMinutes);
 
             this.performancesData.Update(nextPerformance);

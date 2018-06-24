@@ -8,6 +8,8 @@
     {
         string Finish(TrialRoundPerformance performance, string finishedAtTime);
 
-        (bool, string) VetGateAttempt(TrialRoundPerformance performance, VetGateStatus vetGateStatus);
+        (bool disqualified, bool passed, string) VetGateAttempt(
+            TrialRoundPerformance performance, 
+            VetGateStatus vetGateStatus);
     }
 }

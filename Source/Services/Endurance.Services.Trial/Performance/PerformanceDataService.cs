@@ -20,11 +20,11 @@
                 .FirstOrDefault(trp => trp.Index == index + 1
                                        && trp.CompetitorId == competitorId);
 
-        public TrialRoundPerformance GetByIdWithCompetitor(int id) =>
-            this.Data
-                .GetQueryableAll()
-                .Where(trp => trp.Id == id)
-                .Include(trp => trp.Competitor)
-                .FirstOrDefault();
+//        public TrialRoundPerformance GetByIdWithCompetitor(int id) =>
+//            this.Data
+//                .GetQueryableAll()
+//                .Where(trp => trp.Id == id)
+//                .Include(trp => trp.Competitor)
+//                .FirstOrDefault();
     }
 }

@@ -16,6 +16,8 @@
 
         public VetGateStatus SecondVetGateEntryStatus { get; set; }
 
+        public DateTime? VetGateEntryTime { get; set; }
+
         public float AvarageSpeed { get; set; }
 
         public int CompetitorId { get; set; }

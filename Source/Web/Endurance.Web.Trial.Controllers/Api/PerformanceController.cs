@@ -7,9 +7,10 @@
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using RequestModels;
+    using ResponseModels;
     using Services.Trial.Contracts.Performance;
     
-    [Authorize]
+
     [Route("/api/[controller]/[action]")]
     public class PerformancesController : Controller
     {
@@ -47,17 +48,17 @@
                 return new AjaxResult(false, "No such performance");
             }
 
-            var (disqualified, nextPerformanceStartsAt) = performancesBusiness.VetGateAttempt(performance, request.VetGateStatus);
+            var (disqualified, passed, nextPerformanceStartsAt) = 
+                performancesBusiness.VetGateAttempt(performance, request.VetGateStatus);
 
             if (disqualified)
             {
-                return new AjaxResult(message: "Disqualified", data: new
-                {
-                    disqualified = true
-                });
+                return new AjaxResult(message: "Disqualified", data: new VetGateAttemptResponseModel(true));
             }
 
-            return new AjaxResult(data: nextPerformanceStartsAt);
+            return new AjaxResult(data: new VetGateAttemptResponseModel(
+                passedStatus: passed,
+                nextPerformanceStartsAt: nextPerformanceStartsAt));
         }
 
     }

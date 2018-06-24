@@ -1,13 +1,17 @@
-﻿@model Resources.Endurance.Enums.VetGateStatus
+﻿@using Resources.Endurance.Enums
+
+@model Resources.Endurance.Enums.VetGateStatus
 @{
     var isHidden = ViewData["Hidden"] != null ? "hidden" : null;
+    var isDisabled = Model != VetGateStatus.NotEntered;
 }
 
 <div class="form-group @isHidden">
     <label asp-for="@Model" class="control-label"></label>
     <select asp-for="@Model"
             asp-items="@Html.GetEnumSelectList(Model.GetType())"
-            data-api-endpoint="/vetgatestatus"
-            class="form-control"></select>
+            data-api-endpoint="/vetgateattempted"
+            class="form-control"
+            disabled="@(isDisabled)"></select>
     <span asp-validation-for="@Model" class="text-danger"></span>
 </div>

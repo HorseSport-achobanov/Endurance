@@ -1,5 +1,10 @@
 ﻿@using Endurance.Web.Trial.ViewModels.Trial
+@using Resources.Endurance.Enums
 @model Endurance.Web.Trial.ViewModels.Trial.TrialRoundPerformanceViewModel
+
+@{
+    var isHidden = Model.FirstVetGateEntryStatus == VetGateStatus.NotEntered ? new {Hidden = true} : null;
+}
 
 <section class="performance-container" data-performance-id=@Model.Id>
 
@@ -17,7 +22,7 @@
     
     @Html.EditorFor(m => m.FirstVetGateEntryStatus)
     
-    @Html.EditorFor(m => m.SecondVetGateEntryStatus, new { Hidden = true })
+    @Html.EditorFor(m => m.SecondVetGateEntryStatus, isHidden)
 
 </section>
 

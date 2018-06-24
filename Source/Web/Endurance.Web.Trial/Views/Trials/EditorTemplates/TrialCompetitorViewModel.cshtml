@@ -2,22 +2,21 @@
 
 @{
     var riderName = Model.Rider.FirstName + Model.Rider.LastName;
+    var isDisqualifiedClass = Model.Disqualified ? "disqualified" : null;
 }
 
-<div class="row">
-    <div class="competitor-container">
-        <section class="col-md-2 head">
-            <p>Number: @Model.Number</p>
-            <p>Rider: @riderName</p>
-            <p>Horse: @Model.Horse.Name</p>
-        </section>
+<div class="row competitor-container @isDisqualifiedClass">
+    <section class="col-md-2 head">
+        <p>Number: @Model.Number</p>
+        <p>Rider: @riderName</p>
+        <p>Horse: @Model.Horse.Name</p>
+    </section>
 
-        <section class="col-md-6 rounds">
-            @Html.EditorFor(m => m.Performances)
-        </section>
+    <section class="col-md-6 rounds">
+        @Html.EditorFor(m => m.Performances)
+    </section>
 
-        <section class="col-md-4 stats">
-            @Html.DisplayFor(m => m.CurrentAvarageSpeedAtRounds)
-        </section>
-    </div>
+    <section class="col-md-4 stats">
+        @Html.DisplayFor(m => m.CurrentAvarageSpeedAtRounds)
+    </section>
 </div>
