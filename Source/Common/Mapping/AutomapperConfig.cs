@@ -10,7 +10,7 @@
     public static class AutomapperConfig
     {
         public static MapperConfiguration Configure(params Assembly[] assemblies)
-        {
+        {   
             var types = assemblies.SelectMany(a => a.GetExportedTypes()).ToList();
 
             return new MapperConfiguration(configuration =>

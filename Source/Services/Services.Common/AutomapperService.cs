@@ -25,7 +25,7 @@
         public IQueryable<TDestination> MapQueryable<TDestination>(IQueryable source, object parameters = null) =>
             source.ProjectTo<TDestination>(this.mapper.ConfigurationProvider, parameters);
 
-        public IList<TDestination> MapCollection<TSource, TDestination>(IList<TSource> source) =>
-            mapper.Map<IList<TSource>, IList<TDestination>>(source);
+        public IList<TDestination> MapCollection<TSource, TDestination>(IEnumerable<TSource> source) =>
+            mapper.Map<IEnumerable<TSource>, IList<TDestination>>(source);
     }
 }

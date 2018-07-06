@@ -29,7 +29,9 @@
 
         public static void AddMapper(this IServiceCollection services)
         {
-            var config = AutomapperConfig.Configure(Assembly.Load(Assemblies.ViewModels));
+            var config = AutomapperConfig.Configure(
+                Assembly.Load(Assemblies.ViewModels),
+                Assembly.Load(Assemblies.Common));
             services.AddSingleton(sp => config.CreateMapper());
         }
 

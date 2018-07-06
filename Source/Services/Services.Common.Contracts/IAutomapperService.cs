@@ -12,6 +12,6 @@
 
         IQueryable<TDestination> MapQueryable<TDestination>(IQueryable source, object parameters = null);
 
-        IList<TDestination> MapCollection<TSource, TDestination>(IList<TSource> source);
+        IList<TDestination> MapCollection<TSource, TDestination>(IEnumerable<TSource> source);
     }
 }
