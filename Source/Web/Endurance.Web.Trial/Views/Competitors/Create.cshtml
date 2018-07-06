@@ -1,0 +1,27 @@
+﻿@model Endurance.Web.Trial.ViewModels.Competitor.CreateTrialCompetitorViewModel
+
+@{
+    var riderOptionsViewData = new { Options = Model.RiderOptions };
+    var horseOptionsViewData = new { Options = Model.HorseOptions };
+    var trialOPtionsViewData = new { Options = Model.TrialOptions };
+}
+
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <form asp-controller="Competitors"
+              asp-action="Create"
+              method="post">
+
+            @Html.EditorFor(m => m.Number)
+
+            @Html.EditorFor(m => m.RiderId, riderOptionsViewData)
+
+            @Html.EditorFor(m => m.HorseId, horseOptionsViewData)
+
+            @Html.EditorFor(m => m.TrialId, trialOPtionsViewData)
+
+            <input type="submit" class="btn btn-primary" value="Create" />
+
+        </form>
+    </div>
+</div>
