@@ -14,6 +14,8 @@
 
         public string LastName { get; set;  }
 
+        public int ClubId { get; set; }
+
         public BaseClub Club { get; set; }
 
         public bool PreserveCreatedOn { get; set; }
