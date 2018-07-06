@@ -1,0 +1,15 @@
+﻿@model Endurance.Web.Trial.ViewModels.Club.BaseClubViewModel
+
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <form asp-controller="Clubs"
+              asp-action="Create"
+              method="post">
+
+            @Html.EditorFor(m => m.Name)
+
+            <input type="submit" class="btn btn-primary" value="Create"/>
+
+        </form>
+    </div>
+</div>

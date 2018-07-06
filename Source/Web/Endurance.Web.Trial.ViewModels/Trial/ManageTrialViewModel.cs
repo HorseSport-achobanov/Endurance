@@ -5,7 +5,6 @@
     using AutoMapper;
     using Common.Mapping;
     using Data.Trial.Models;
-    using Services.Common.Contracts;
 
     public class ManageTrialViewModel : IMapFrom<Trial>, IHasCustomMappings
     {
