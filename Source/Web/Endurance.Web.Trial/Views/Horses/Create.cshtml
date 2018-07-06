@@ -1,0 +1,23 @@
+﻿@model Endurance.Web.Trial.ViewModels.Horse.TrialHorseViewModel
+
+@{
+    var clubOptionsViewData = new { Options = Model.ClubOptions };
+}
+
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <form asp-controller="Horses"
+              asp-action="Create"
+              method="post">
+
+            @Html.EditorFor(m => m.Name)
+
+            @Html.EditorFor(m => m.Breed)
+
+            @Html.EditorFor(m => m.ClubId, clubOptionsViewData)
+
+            <input type="submit" class="btn btn-primary" value="Create" />
+
+        </form>
+    </div>
+</div>
