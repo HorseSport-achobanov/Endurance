@@ -1,0 +1,48 @@
+﻿@model IList<Endurance.Web.Trial.ViewModels.Trial.TrialShortViewModel>
+
+@{
+    var count = default(int);
+}
+
+<div class="row">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Competitors</th>
+                <th scope="col">Active</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                @foreach (var trial in Model)
+                {
+                    count++;
+                    var isActive = trial.IsActive;
+                    var buttonClass = isActive ? "btn-success" : "btn-warning";
+                    var buttonText = isActive ? "Active" : "Activate";
+
+                    <th scope="row">@count</th>
+                    <td>@trial.Name</td>    
+                    <td>
+                        @Html.ActionLink("Add competitors", "Create", "Competitors", new {trialId = trial.Id, @class = "btn btn-primary"})
+                    </td>
+                    <td>
+                        <form action="/trials/activate/@trial.Id" method="post">
+                            <input type="submit" 
+                                   data-trial-id=@trial.Id 
+                                   class="btn @buttonClass"
+                                   disabled=@isActive
+                                   value=@buttonText />
+                        </form>
+                    </td>                                
+                }
+            </tr>
+        </tbody>     
+    </table>
+</div>
+
+@section Scripts {
+    <script src="js/activateTrial.js"></script>
+}
