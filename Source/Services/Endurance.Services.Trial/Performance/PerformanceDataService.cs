@@ -16,7 +16,7 @@
 
         public TrialRoundPerformance GetNextByIndexAndCompetitorId(int index, int competitorId) =>
             this.Data
-                .GetQueryableAll()
+                .GetAllQueryable()
                 .FirstOrDefault(trp => trp.Index == index + 1
                                        && trp.CompetitorId == competitorId);
 

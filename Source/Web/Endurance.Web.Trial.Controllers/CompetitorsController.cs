@@ -30,9 +30,14 @@
         }
 
         [HttpGet]
-        public IActionResult Create()
+        public IActionResult Create(int? trialId)
         {
             var viewModel = PrepareSelectOptions(new CreateTrialCompetitorViewModel());
+            if (trialId.HasValue)
+            {
+                viewModel.TrialId = trialId.Value;
+            }
+
             return View(viewModel);
         }
 

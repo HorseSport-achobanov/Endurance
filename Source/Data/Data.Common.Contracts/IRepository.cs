@@ -8,7 +8,7 @@
     {
         IEnumerable<T> GetAll();
 
-        IQueryable<T> GetQueryableAll();
+        IQueryable<T> GetAllQueryable();
 
         T GetById(object id);
 

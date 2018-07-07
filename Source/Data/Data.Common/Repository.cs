@@ -20,7 +20,7 @@
 
         public IEnumerable<T> GetAll() => this.dbSet.ToList();
 
-        public IQueryable<T> GetQueryableAll() => this.dbSet;
+        public IQueryable<T> GetAllQueryable() => this.dbSet;
 
         public T GetById(object id) => this.dbSet.Find(id);
 

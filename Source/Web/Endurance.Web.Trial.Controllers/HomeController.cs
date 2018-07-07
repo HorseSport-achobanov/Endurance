@@ -1,54 +1,38 @@
 ﻿namespace Endurance.Web.Trial.Controllers
 {
-    using System.Collections.Generic;
-    using System.Diagnostics;
     using System.Linq;
     using Microsoft.AspNetCore.Mvc;
-
     using global::Services.Common.Contracts;
-    using Data.Trial.Models;
-    using ViewModels;
+    using Services.Trial.Contracts.Trial;
+    using ViewModels.Trial;
 
-    public class HomeController : Controller
+    [Route("/")]
+    public class HomeController : BaseController
     {
         private readonly IAutomapperService mapper;
+        private readonly ITrialsDataService trialsData;
 
-        public HomeController(IAutomapperService mapper)
+        public HomeController(
+            IAutomapperService mapper,
+            ITrialsDataService trialsData)
         {
             this.mapper = mapper;
+            this.trialsData = trialsData;
         }
 
-        public IActionResult Index()
-        {
-            var person = new Person()
-            {
-                FirstName = "Alex",
-                LastName = "Chobanov",
-                Age = 24
-            };
+        [Route("/")]
+        public IActionResult Dashboard()
+        {   
+            var viewModel = mapper
+                .MapQueryable<TrialShortViewModel>(this.trialsData.GetAllQueryable())
+                .ToList();
 
-            var personQuerable = new EnumerableQuery<Person>(new List<Person>() { person });
-            var model = mapper.MapQueryable<PersonViewModel>(personQuerable).FirstOrDefault();
-            return View(model);
+            return View(viewModel);
         }
 
-        public IActionResult About()
-        {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
-        }
-
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+//        public IActionResult Error()
+//        {
+//            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+//        }
     }
 }

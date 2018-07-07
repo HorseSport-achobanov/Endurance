@@ -79,7 +79,7 @@
         public async Task<IActionResult> Logout()
         {
             await userBusiness.SignOutAsync();
-            return RedirectToAction(nameof(HomeController.Index), "Home");
+            return RedirectToAction("Login");
         }
 
         [HttpGet]
@@ -95,7 +95,7 @@
             if (Url.IsLocalUrl(returnUrl))
                 return Redirect(returnUrl);
             
-            return RedirectToAction(nameof(HomeController.Index), "Home");
+            return RedirectToAction("Login");
         }
 
         #endregion

@@ -19,7 +19,7 @@
 
         public virtual IEnumerable<T> GetAll() => this.data.GetAll();
 
-        public virtual IQueryable<T> GetQueryableAll() => this.data.GetQueryableAll();
+        public virtual IQueryable<T> GetAllQueryable() => this.data.GetAllQueryable();
 
         public virtual T GetById(object id) => this.data.GetById(id);
 
