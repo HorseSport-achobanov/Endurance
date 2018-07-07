@@ -12,6 +12,6 @@
             asp-items="@Html.GetEnumSelectList(Model.GetType())"
             data-api-endpoint="/vetgateattempted"
             class="form-control"
-            disabled="@(isDisabled)"></select>
+            disabled="@isDisabled"></select>
     <span asp-validation-for="@Model" class="text-danger"></span>
 </div>

@@ -26,7 +26,6 @@
                 PopulateHorses();
                 PopulateRiders();
                 PopulateRounds();
-                PopulatePerformances();
                 PopulateCompetitors();
                 PopulateTrial();
 
@@ -197,21 +196,18 @@
                     Horse = horses[0],
                     Rider = riders[0],
                     Number = 1,
-                    Performances = performances[0],
                 },
                 new TrialCompetitor()
                 {
                     Horse = horses[1],
                     Rider = riders[1],
                     Number = 2,
-                    Performances = performances[1],
                 },
                 new TrialCompetitor()
                 {
                     Horse = horses[2],
                     Rider = riders[2],
                     Number = 3,
-                    Performances = performances[2],
                 },
             };
         }

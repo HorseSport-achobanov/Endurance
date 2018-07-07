@@ -4,12 +4,8 @@
     using Data.Trial.Models;
     using global::Services.Common.Contracts;
 
-    public interface ITrialsDataService : IService
+    public interface ITrialsDataService : IDataService<Trial>
     {
-        Trial GetById(int id);
-
-        IQueryable<Trial> GetQueryableAll();
-
-        Trial Create(Trial trial);
+        Trial GetTrialToManage(int id);
     }
 }

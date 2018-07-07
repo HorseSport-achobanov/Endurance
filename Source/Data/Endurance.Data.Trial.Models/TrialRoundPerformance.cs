@@ -6,6 +6,19 @@
 
     public class TrialRoundPerformance : TrialRound
     {
+        public TrialRoundPerformance()
+        { 
+        }
+        
+        public TrialRoundPerformance(int competitorId, TrialRound round)
+        {
+            CompetitorId = competitorId;
+            Index = round.Index;
+            LengthInKilometers = round.LengthInKilometers;
+            MaxRestTimeInMinutes = round.MaxRestTimeInMinutes;
+            VetGateEntryInMinutes = round.VetGateEntryInMinutes;
+        }
+
         public DateTime? StartedAtTime { get; set; }
 
         public DateTime? FinishedAtTime { get; set; }

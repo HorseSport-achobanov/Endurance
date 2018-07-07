@@ -5,6 +5,6 @@
 
     public interface ITrialsBusinessService : IService
     {
-
+        bool Activate(int Id);
     }
 }

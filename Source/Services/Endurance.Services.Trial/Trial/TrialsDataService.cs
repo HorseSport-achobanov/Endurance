@@ -4,28 +4,25 @@
     using Contracts.Trial;
     using Endurance.Data.Trial.Models;
     using global::Data.Common.Contracts;
+    using global::Services.Common;
     using Microsoft.EntityFrameworkCore;
 
-    public class TrialsDataService : ITrialsDataService
+    public class TrialsDataService : DataService<Trial>, ITrialsDataService
     {
-        private readonly IRepository<Trial> trialsData;
+        private IRepository<Trial> Trials => this.Data;
 
-        public TrialsDataService(IRepository<Trial> trialsData)
+        public TrialsDataService(IRepository<Trial> trials) : base(trials)
         {
-            this.trialsData = trialsData;
         }
 
-        public Trial GetById(int id) =>
-            this.trialsData.GetQueryableAll()
-                .Where(t => t.Id == id)
+        public Trial GetTrialToManage(int Id) =>
+            this.Trials
+                .GetAllQueryable()
+                .Where(t => t.Id == Id)
                 .Include(t => t.Rounds)
-                .Include(t => t.Competitors).ThenInclude(c => c.Rider).ThenInclude(r => r.Club)
-                .Include(t => t.Competitors).ThenInclude(c => c.Horse)
                 .Include(t => t.Competitors).ThenInclude(c => c.Performances)
+                .Include(t => t.Competitors).ThenInclude(c => c.Rider)
+                .Include(t => t.Competitors).ThenInclude(c => c.Horse)
                 .FirstOrDefault();
-
-        public IQueryable<Trial> GetQueryableAll() => this.trialsData.GetQueryableAll();
-
-        public Trial Create(Trial trial) => trialsData.Add(trial);
     }
 }
