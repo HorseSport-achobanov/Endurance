@@ -14,10 +14,12 @@
     using Microsoft.EntityFrameworkCore;
     using Services.Trial.Account;
     using Services.Trial.Contracts.Account;
+    using Services.Trial.Contracts.Competitor;
     using Services.Trial.Contracts.Performance;
     using Services.Trial.Contracts.Trial;
     using Services.Trial.Performance;
     using Services.Trial.Trial;
+    using Endurance.Services.Trial.Competitor;
 
     public static class ServicesConfig
     {
@@ -45,6 +47,7 @@
             services.AddScoped<ITrialsDataService, TrialsDataService>();
             services.AddScoped<IPerformanceDataService, PerformanceDataService>();
             services.AddScoped<IPerformanceBusinessService, PerformanceBusinessService>();
+            services.AddScoped<ITrialCompetitorBusinessService, TrialCompetitorsBusinessService>();
         }
 
         private static void MapDataControls(IServiceCollection services)

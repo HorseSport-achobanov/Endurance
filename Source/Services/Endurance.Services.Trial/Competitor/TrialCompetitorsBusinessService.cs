@@ -4,7 +4,7 @@
     using Data.Trial.Models;
     using global::Services.Common.Contracts;
 
-    class TrialCompetitorsBusinessService : ITrialCompetitorBusinessService
+    public class TrialCompetitorsBusinessService : ITrialCompetitorBusinessService
     {
         private readonly IDataService<TrialCompetitor> competitiorsData;
         private readonly IDataService<TrialHorse> horsesData;
