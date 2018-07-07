@@ -11,7 +11,7 @@
         private readonly IDataService<TrialRider> ridersData;
         private readonly IDataService<Trial> trialsData;
 
-        private readonly string ErrorMessageFormat = "{0} does not exist";
+        private readonly string NullEntityMessageFormat = "{0} does not exist";
 
         public TrialCompetitorsBusinessService(
             IDataService<TrialCompetitor> competitiorsData,
@@ -37,7 +37,7 @@
                 return (
                     success: false, 
                     field: nameof(TrialCompetitor.RiderId), 
-                    message: string.Format(ErrorMessageFormat, "Rider"));
+                    message: string.Format(NullEntityMessageFormat, "Rider"));
             }
 
             if (horse == null)
@@ -45,7 +45,7 @@
                 return (
                     success: false,
                     field: nameof(TrialCompetitor.HorseId),
-                    message: string.Format(ErrorMessageFormat, "Horse"));
+                    message: string.Format(NullEntityMessageFormat, "Horse"));
             }
 
             if (trial == null)
@@ -53,7 +53,15 @@
                 return (
                     success: false,
                     field: nameof(TrialCompetitor.TrialId),
-                    message: string.Format(ErrorMessageFormat, "Trial"));
+                    message: string.Format(NullEntityMessageFormat, "Trial"));
+            }
+
+            if (trial.IsActive)
+            {
+                return (
+                    success: false,
+                    field: nameof(TrialCompetitor.TrialId),
+                    message: "Cannot create competitors for active trials.");
             }
 
             this.competitiorsData.Add(competitor);
