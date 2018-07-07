@@ -10,7 +10,8 @@
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Name</th>
-                <th scope="col">Competitors</th>
+                <th scope="col">Manage</th>
+                <th scope="col">Add Competitor</th>
                 <th scope="col">Active</th>
             </tr>
         </thead>
@@ -20,22 +21,24 @@
                 {
                     count++;
                     var isActive = trial.IsActive;
-                    var buttonClass = isActive ? "btn-success" : "btn-warning";
-                    var buttonText = isActive ? "Active" : "Activate";
 
                     <th scope="row">@count</th>
-                    <td>@trial.Name</td>    
+                    <td>@trial.Name</td>
                     <td>
-                        @Html.ActionLink("Add competitors", "Create", "Competitors", new {trialId = trial.Id, @class = "btn btn-primary"})
+                        @Html.ActionLink("Manage", "Manage", "Trials", new { id = trial.Id })
                     </td>
                     <td>
-                        <form action="/trials/activate/@trial.Id" method="post">
-                            <input type="submit" 
-                                   data-trial-id=@trial.Id 
-                                   class="btn @buttonClass"
-                                   disabled=@isActive
-                                   value=@buttonText />
-                        </form>
+                        @if (isActive)
+                        {
+                            <i>- Cannot add for active trials -</i>
+                        }
+                        else
+                        {
+                            @Html.ActionLink("Add competitors", "Create", "Competitors", new {trialId = trial.Id, @class = "btn btn-primary"})
+                        }
+                    </td>
+                    <td>
+                        <partial name="_ActivateTrial" model=@trial />
                     </td>                                
                 }
             </tr>

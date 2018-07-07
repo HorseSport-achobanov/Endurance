@@ -1,0 +1,14 @@
+﻿@model Endurance.Web.Trial.ViewModels.Trial.TrialShortViewModel
+@{
+    var isActive = Model.IsActive;
+    var buttonClass = isActive ? "btn-success" : "btn-warning";
+    var buttonText = isActive ? "Active" : "Activate";
+}
+
+<form action="/trials/activate/@Model.Id" method="post">
+    <input type="submit"
+           data-trial-id=@Model.Id
+           class="btn @buttonClass"
+           disabled=@isActive
+           value=@buttonText />
+</form>

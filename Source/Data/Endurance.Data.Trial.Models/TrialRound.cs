@@ -12,6 +12,8 @@
 
         public int Index { get; set; }
 
+        public DateTime? StartedAtTime { get; set; }
+
         public double LengthInKilometers { get; set; }
         
         public double VetGateEntryInMinutes { get; set; }

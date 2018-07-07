@@ -1,8 +1,6 @@
-﻿@{
-    ViewData["Title"] = "View";
-}
+﻿@using Endurance.Web.Trial.ViewModels.Trial
 
-@model Endurance.Web.Trial.ViewModels.Trial.ManageTrialViewModel
+@model ManageTrialViewModel
 
 <header>
     <div class="row">
@@ -35,9 +33,27 @@
 </header>
 
 <section id="competitors-container">
-    @Html.EditorFor(m => m.Competitors)
+    @if (Model.IsActive)
+    {
+        @Html.EditorFor(m => m.Competitors)
+    }
+    else
+    {
+        var trialShortViewModel = new TrialShortViewModel()
+        {
+            Id = Model.Id,
+            Name = Model.Name,
+            IsActive = Model.IsActive
+        };
+
+        <div class="text-center">
+            <h2>Trial is not active</h2>
+            <partial name="_ActivateTrial" model=@trialShortViewModel/>
+        </div>
+    }
 </section>
 
 @section Scripts {
     <script src="/js/competitorPerformance.js"></script>
+    <script src="js/activateTrial.js"></script>
 }

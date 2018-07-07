@@ -115,6 +115,7 @@
                     MaxRestTimeInMinutes = 10,
                     VetGateEntryInMinutes = 20,
                     Index = 0,
+                    StartedAtTime = DateTime.Parse("09:00")
                 },
                 new TrialRound()
                 {
@@ -122,67 +123,6 @@
                     MaxRestTimeInMinutes = 15,
                     VetGateEntryInMinutes = 30,
                     Index = 1
-                }
-            };
-        }
-
-        private static void PopulatePerformances()
-        {
-            performances = new List<IList<TrialRoundPerformance>>()
-            {
-                new List<TrialRoundPerformance>()
-                {
-                    new TrialRoundPerformance()
-                    {
-                        LengthInKilometers = 15,
-                        MaxRestTimeInMinutes = 10,
-                        VetGateEntryInMinutes = 20,
-                        Index = 0,
-                        StartedAtTime = DateTime.Parse("09:00")
-                    },
-                    new TrialRoundPerformance()
-                    {
-                        LengthInKilometers = 15,
-                        MaxRestTimeInMinutes = 10,
-                        VetGateEntryInMinutes = 30,
-                        Index = 1,
-                    }
-                },
-                new List<TrialRoundPerformance>()
-                {
-                    new TrialRoundPerformance()
-                    {
-                        LengthInKilometers = 15,
-                        MaxRestTimeInMinutes = 10,
-                        VetGateEntryInMinutes = 20,
-                        Index = 0,
-                        StartedAtTime = DateTime.Parse("09:00")
-                    },
-                    new TrialRoundPerformance()
-                    {
-                        LengthInKilometers = 15,
-                        VetGateEntryInMinutes = 30,
-                        Index = 1,
-                        MaxRestTimeInMinutes = 10,
-                    }
-                },
-                new List<TrialRoundPerformance>()
-                {
-                    new TrialRoundPerformance()
-                    {
-                        LengthInKilometers = 15,
-                        MaxRestTimeInMinutes = 10,
-                        VetGateEntryInMinutes = 20,
-                        Index = 0,
-                        StartedAtTime = DateTime.Parse("09:00")
-                    },
-                    new TrialRoundPerformance()
-                    {
-                        LengthInKilometers = 15,
-                        MaxRestTimeInMinutes = 10,
-                        Index = 1,
-                        VetGateEntryInMinutes = 30,
-                    }
                 }
             };
         }

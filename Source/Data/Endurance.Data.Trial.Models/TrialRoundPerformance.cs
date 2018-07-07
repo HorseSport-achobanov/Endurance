@@ -14,12 +14,11 @@
         {
             CompetitorId = competitorId;
             Index = round.Index;
+            StartedAtTime = round.StartedAtTime;
             LengthInKilometers = round.LengthInKilometers;
             MaxRestTimeInMinutes = round.MaxRestTimeInMinutes;
             VetGateEntryInMinutes = round.VetGateEntryInMinutes;
         }
-
-        public DateTime? StartedAtTime { get; set; }
 
         public DateTime? FinishedAtTime { get; set; }
 
