@@ -19,6 +19,7 @@
             }
             
             host.Run();
+            // Hacks
         }
 
         public static IWebHost BuildWebHost(string[] args) =>
